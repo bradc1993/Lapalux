@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { motion } from "framer-motion"
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -18,8 +19,8 @@ const Image = () => {
     query {
       placeholderImage: file(relativePath: { eq: "amnioverse.jpg" }) {
         childImageSharp {
-          fluid(quality: 90) {
-            ...GatsbyImageSharpFluid
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
           }
         }
       }
@@ -30,7 +31,19 @@ const Image = () => {
     return <div>Picture not found</div>
   }
 
-  return <Img className="bg-img" fluid={data.placeholderImage.childImageSharp.fluid} />
+  return (
+    <div className="bg-img-wrapper">
+      <motion.div
+        animate={{ y: "-100vh" }}
+        transition={{ duration: 11, type: "tween", ease: "easeOut" }}
+      >
+        <Img
+          className="bg-img"
+          fluid={data.placeholderImage.childImageSharp.fluid}
+        />
+      </motion.div>
+    </div>
+  )
 }
 
 export default Image

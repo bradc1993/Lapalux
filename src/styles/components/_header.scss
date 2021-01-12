@@ -1,0 +1,22 @@
+.header {
+    padding: 0 1.25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header--left {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.header--right {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.header--icon {
+    width: 6%;
+    height: 6%;
+}

@@ -1,0 +1,16 @@
+.footer {
+    padding: 0.5% 1.25%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer--left {
+    width: 11%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer--icon {
+    width: 18%;
+}

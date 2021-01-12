@@ -17,10 +17,10 @@ import { motion } from "framer-motion"
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "amnioverse.jpg" }) {
+      placeholderImage: file(relativePath: { eq: "amnioverse_photos_v2_x2.jpg" }) {
         childImageSharp {
           fluid(quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }

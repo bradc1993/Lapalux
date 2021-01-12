@@ -1,6 +1,8 @@
 @import "./components/layout.scss";
 @import "./components/_header.scss";
 @import "./components/_image.scss";
+@import "./components/album-display";
+@import "./components/_footer.scss";
 
 @font-face {
   font-family: "El Messiri";
@@ -20,6 +22,8 @@
 }
 
 html {
+  height: 100vh;
+  width: 100vw;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font: 112.5%/1.45em georgia, serif, sans-serif;
@@ -27,9 +31,12 @@ html {
 }
 body {
   margin: 0;
+  height: 100vh;
+  width: 100vw;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
+  background-color: black;
   font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;

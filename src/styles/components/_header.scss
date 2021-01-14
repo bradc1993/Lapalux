@@ -2,7 +2,7 @@
     padding: 0 1.25%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
 }
 .header--left {
     width: 20%;
@@ -19,4 +19,8 @@
 .header--icon {
     width: 6%;
     height: 6%;
+}
+#album-title {
+    padding-top: 6.6px;
+    margin-left: 3.5px;
 }

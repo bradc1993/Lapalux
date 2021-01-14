@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => (
         src={GridIcon}
         alt="Click to display albums."
       />
-      <h2>Amnioverse</h2>
+      <h2 id="album-title">Amnioverse</h2>
     </div>
   </header>
 )

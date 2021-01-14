@@ -1,16 +1,48 @@
 .footer {
-    padding: 0.5% 1.25%;
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 97.5%;
+  padding: 0.5% 1.25%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .footer--left {
-    width: 11%;
-    display: flex;
-    justify-content: space-between;
+  width: 12.5%;
+  display: flex;
+  justify-content: space-between;
+}
+.footer--icon-wrapper {
+  width: 15%;
 }
 .footer--icon {
-    width: 18%;
+  width: 100%;
+}
+.footer--audio-player {
+  width: 20%;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+#now-playing {
+  white-space: nowrap;
+//   text-align: right;
+}
+#song-title-wrapper {
+  width: fit-content;
+  display: inline-flex;
+  overflow: hidden;
+}
+#song-title-inner {
+  white-space: nowrap;
+  display: inline-block;
+//   animation: marquee 2s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(110%);
+  }
 }

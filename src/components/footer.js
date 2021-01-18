@@ -1,29 +1,26 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useState } from "react"
 
 import SpotifyIcon from "../images/spotify.png"
 import InstagramIcon from "../images/instagram.png"
 import FacebookIcon from "../images/facebook.png"
 import TwitterIcon from "../images/twitter.png"
-import VolumeUpIcon from "../images/volume-unmute.png"
-import VolumeMuteIcon from "../images/volume-mute.png"
+import PlayingIcon from "../assets/vol-play.svg"
+import PausedIcon from "../assets/vol-mute.svg"
 
-import Silence from "../audio/silence.mp3"
 import LimbToLimb from "../audio/limb-to-limb.mp3"
 
 const Footer = () => {
-  const [songPlay, toggleSongPlay] = useState(false)
-  const audioRef = useRef()
-
-  const handleClick = () => {
-    if (!songPlay) {
-      toggleSongPlay(true)
-      audioRef.current.play()
+  const [isPlaying, toggleIsPlaying] = useState(true)
+  const togglePause = () => {
+    const audio = document.getElementById("current-song")
+    if (isPlaying === true) {
+      toggleIsPlaying(false)
+      audio.pause()
     } else {
-      toggleSongPlay(false)
-      audioRef.current.pause()
+      toggleIsPlaying(true)
+      audio.play()
     }
   }
-
   return (
     <footer className="footer">
       <div className="footer--left">
@@ -61,20 +58,12 @@ const Footer = () => {
         </a>
       </div>
       <div className="footer--audio-player">
-        <iframe
-          src={Silence}
-          allow="autoplay"
-          style={{ display: "none" }}
-        ></iframe>
-        <audio ref={audioRef} autoPlay preload>
+        <audio id="current-song" preload="true">
           <source src={LimbToLimb} type="audio/mp3" />
         </audio>
-        {/* <img
-          id="volume-icon"
-          onClick={() => handleClick()}
-          src={songPlay ? VolumeUpIcon : VolumeMuteIcon}
-          alt="Click to play song."
-        /> */}
+        <div className="volume-icon" onClick={() => togglePause()}>
+          {isPlaying ? <PlayingIcon /> : <PausedIcon />}
+        </div>
         <h2 id="now-playing">
           NOW PLAYING -{" "}
           <span id="song-title-wrapper">

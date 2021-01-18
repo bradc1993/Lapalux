@@ -12,6 +12,7 @@ import {
   SSAO,
   ToneMapping,
 } from "@react-three/postprocessing"
+import { AmbientLight } from "three"
 
 const AlbumDisplay = ({ children }) => {
   return (
@@ -21,7 +22,9 @@ const AlbumDisplay = ({ children }) => {
         camera={{ position: [0, 0, 1], far: 1, near: 0.1 }}
         gl={{ antialias: "false", alpha: "false" }}
       >
-        <Suspense fallback={null}>{children}</Suspense>
+        <Suspense fallback={null}>
+          {children}
+        </Suspense>
         <EffectComposer>
           {/* <SSAO /> */}
           <Vignette offset={0.7} />
@@ -30,7 +33,7 @@ const AlbumDisplay = ({ children }) => {
           {/* <Glitch active /> */}
           <Noise />
           {/* <Pixelation /> */}
-          <DotScreen />
+          {/* <DotScreen /> */}
           {/* <ChromaticAberration /> */}
           {/* <Scanline /> */}
         </EffectComposer>

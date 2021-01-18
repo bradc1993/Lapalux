@@ -1,0 +1,15 @@
+.cursor {
+  pointer-events: none;
+  // background-image: url("../images/mouse-default.svg");
+  background-repeat: no-repeat;
+//   background-position: center;
+  position: absolute;
+  z-index: 2;
+  width: 2%;
+  height: 2%;
+//   transform: translateX(-25%)
+}
+.cursor--click {
+  @extend .cursor;
+  transform: scale(0.7);
+}

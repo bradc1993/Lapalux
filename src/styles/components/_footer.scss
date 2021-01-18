@@ -23,6 +23,13 @@
   display: inline-flex;
   justify-content: flex-end;
 }
+.volume-icon {
+  display: inline-flex;
+  justify-content: center;
+  width: 10%;
+  opacity: 0.9;
+  cursor: pointer;
+}
 #now-playing {
   white-space: nowrap;
 //   text-align: right;
@@ -38,11 +45,11 @@
 //   animation: marquee 2s linear infinite;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(110%);
-  }
-}
+// @keyframes marquee {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   100% {
+//     transform: translateX(110%);
+//   }
+// }

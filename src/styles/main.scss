@@ -1,8 +1,9 @@
-@import "./components/layout.scss";
-@import "./components/_header.scss";
-@import "./components/_image.scss";
+@import "./components/cursor";
+@import "./components/load-screen";
+@import "./components/header";
+@import "./components/image";
 @import "./components/album-display";
-@import "./components/_footer.scss";
+@import "./components/footer";
 
 @font-face {
   font-family: "El Messiri";
@@ -28,6 +29,10 @@
   font-family: "National Light";
   src: url("../fonts/national-2-test-light.woff") format("woff");
 }
+
+// * {
+//   cursor: none;
+// }
 
 html {
   height: 100vh;
@@ -64,4 +69,17 @@ h2 {
   font-family: "Telegraf Ultralight";
   font-size: 1.25rem;
   display: inline;
+}
+h3 {
+  font-family: "El Messiri";
+  font-size: 3rem;
+  line-height: 110%;
+  text-align: center;
+  // display: inline;
+}
+h4 {
+  font-family: "Telegraf Ultralight";
+  color: white;
+  display: inline;
+  font-size: 1.75rem;
 }

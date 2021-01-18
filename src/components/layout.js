@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import Cursor from "./cursor"
 import Header from "./header"
 import Footer from "./footer"
 
@@ -29,6 +30,7 @@ const Layout = ({ children }) => {
       {/* <div className="film-grain" /> */}
       <main>{children}</main>
       <Footer />
+      {/* <Cursor /> */}
     </>
   )
 }

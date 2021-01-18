@@ -2,17 +2,10 @@ import React, { Suspense } from "react"
 import { Canvas } from "react-three-fiber"
 import {
   EffectComposer,
-  Glitch,
   Noise,
-  Scanline,
-  DotScreen,
-  Pixelation,
-  ChromaticAberration,
   Vignette,
-  SSAO,
   ToneMapping,
 } from "@react-three/postprocessing"
-import { AmbientLight } from "three"
 
 const AlbumDisplay = ({ children }) => {
   return (

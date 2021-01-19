@@ -4,6 +4,7 @@
 @import "./components/image";
 @import "./components/album-display";
 @import "./components/footer";
+@import "./components/menu";
 
 @font-face {
   font-family: "El Messiri";
@@ -72,13 +73,13 @@ h2 {
 }
 h3 {
   font-family: "El Messiri";
-  font-size: 3rem;
+  font-size: 3.25rem;
   line-height: 110%;
   text-align: center;
   // display: inline;
 }
 h4 {
-  font-family: "Telegraf Ultralight";
+  font-family: "Telegraf Regular";
   color: white;
   display: inline;
   font-size: 1.75rem;

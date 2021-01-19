@@ -68,8 +68,8 @@ const LoadScreen = ({ handleEnter }) => {
           className="enter-btn"
           onClick={handleEnter}
           type="button"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, display: "none" }}
+          animate={{ opacity: 1, display: "inline-block" }}
           transition={{ delay: 2 }}
         >
           <h4>ENTER</h4>

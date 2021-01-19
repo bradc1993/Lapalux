@@ -5,6 +5,10 @@ import {
   Noise,
   Vignette,
   ToneMapping,
+  SSAO,
+  Scanline,
+  Glitch,
+  DotScreen,
 } from "@react-three/postprocessing"
 
 const AlbumDisplay = ({ children }) => {
@@ -15,21 +19,19 @@ const AlbumDisplay = ({ children }) => {
         camera={{ position: [0, 0, 1], far: 1, near: 0.1 }}
         gl={{ antialias: "false", alpha: "false" }}
       >
-        <Suspense fallback={null}>
-          {children}
-        </Suspense>
-        <EffectComposer>
+        <Suspense fallback={null}>{children}</Suspense>
+        {/* <EffectComposer> */}
           {/* <SSAO /> */}
-          <Vignette offset={0.7} />
-          <ToneMapping adaptationRate={0.2} />
+          {/* <Vignette offset={0.7} /> */}
+          {/* <ToneMapping adaptationRate={0.2} /> */}
           {/* <Scanline /> */}
           {/* <Glitch active /> */}
-          <Noise />
+          {/* <Noise /> */}
           {/* <Pixelation /> */}
           {/* <DotScreen /> */}
           {/* <ChromaticAberration /> */}
           {/* <Scanline /> */}
-        </EffectComposer>
+        {/* </EffectComposer> */}
       </Canvas>
     </div>
   )

@@ -8,13 +8,13 @@ import SEO from "../components/seo"
 import AlbumDisplay from "../components/album-display"
 import Album from "../components/album"
 import LoadScreen from "../components/load-screen"
+import Menu from "../components/menu"
 
 const IndexPage = () => {
   const [entered, triggerEntered] = useState(false)
 
   const handleEnter = () => {
     triggerEntered(true)
-    console.log(entered)
     const audio = document.getElementById("current-song")
     audio.play()
   }
@@ -33,10 +33,20 @@ const IndexPage = () => {
         </motion.div>
       ) : null}
       <Layout>
-        <SEO title="Home" />
-        <AlbumDisplay>
-          <Album />
-        </AlbumDisplay>
+        {props => (
+          <>
+            <SEO title="Home" />
+            {props.menu ? (
+              <Menu
+                closeMenu={props.closeMenu}
+                changeAlbum={() => props.handleAlbumChange()}
+              />
+            ) : null}
+            <AlbumDisplay>
+              <Album album={props.album} />
+            </AlbumDisplay>
+          </>
+        )}
       </Layout>
     </AnimatePresence>
   )

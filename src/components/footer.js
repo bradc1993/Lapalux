@@ -58,7 +58,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="footer--audio-player">
-        <audio id="current-song" preload="true">
+        <audio id="current-song" preload="true" loop>
           <source src={LimbToLimb} type="audio/mp3" />
         </audio>
         <div className="volume-icon" onClick={() => togglePause()}>

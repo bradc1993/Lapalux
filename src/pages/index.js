@@ -39,7 +39,7 @@ const IndexPage = () => {
             {props.menu ? (
               <Menu
                 closeMenu={props.closeMenu}
-                changeAlbum={() => props.handleAlbumChange()}
+                changeAlbum={props.handleAlbumChange}
               />
             ) : null}
             <AlbumDisplay>

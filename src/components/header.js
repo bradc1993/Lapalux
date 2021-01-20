@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import GridIcon from "../images/grid-vertical-round.png"
 
-const Header = ({ siteTitle, openMenu }) => (
+const Header = ({ siteTitle, openMenu, album }) => (
   <header className="header">
     <div className="header--left">
       <h1>{siteTitle}</h1>
@@ -16,7 +16,7 @@ const Header = ({ siteTitle, openMenu }) => (
         alt="Click to display albums."
         onClick={openMenu}
       />
-      <h2 id="album-title">Amnioverse</h2>
+      <h2 id="album-title">{album}</h2>
     </div>
   </header>
 )

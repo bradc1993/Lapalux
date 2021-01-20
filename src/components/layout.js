@@ -25,9 +25,12 @@ const Layout = props => {
 
   const [menu, toggleMenu] = useState(false)
   const [album, changeAlbum] = useState("Amnioverse")
-  const handleAlbumChange = selectedAlbum => {
-    changeAlbum(selectedAlbum)
+
+  const handleAlbumChange = album => {
+    changeAlbum(album)
+    toggleMenu(false)
   }
+
   const globals = {
     menu: menu,
     closeMenu: () => toggleMenu(false),
@@ -40,6 +43,7 @@ const Layout = props => {
       <Header
         siteTitle={data.site.siteMetadata?.title || `Title`}
         openMenu={() => toggleMenu(true)}
+        album={album}
       />
       <main>{props.children({ ...props, ...globals })}</main>
       <Footer />

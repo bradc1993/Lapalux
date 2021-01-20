@@ -9,29 +9,30 @@ import {
   Scanline,
   Glitch,
   DotScreen,
+  Outline
 } from "@react-three/postprocessing"
 
 const AlbumDisplay = ({ children }) => {
   return (
     <div className="canvas-wrapper">
       <Canvas
-        // colorManagement
+        colorManagement
         camera={{ position: [0, 0, 1], far: 1, near: 0.1 }}
         gl={{ antialias: "false", alpha: "false" }}
       >
         <Suspense fallback={null}>{children}</Suspense>
-        {/* <EffectComposer> */}
+        <EffectComposer>
           {/* <SSAO /> */}
-          {/* <Vignette offset={0.7} /> */}
-          {/* <ToneMapping adaptationRate={0.2} /> */}
+          <Vignette offset={0.7} />
+          <ToneMapping adaptationRate={0.2} />
           {/* <Scanline /> */}
           {/* <Glitch active /> */}
-          {/* <Noise /> */}
+          <Noise />
           {/* <Pixelation /> */}
           {/* <DotScreen /> */}
           {/* <ChromaticAberration /> */}
           {/* <Scanline /> */}
-        {/* </EffectComposer> */}
+        </EffectComposer>
       </Canvas>
     </div>
   )

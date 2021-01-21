@@ -6,7 +6,6 @@
  */
 
 import React, { useState } from "react"
-// import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 // import Cursor from "./cursor"
 import Header from "./header"
@@ -27,14 +26,19 @@ const Layout = props => {
   `)
 
   const [menu, toggleMenu] = useState(false)
-  const [album, changeAlbum] = useState("Amnioverse")
-  const [url, changeUrl] = useState(LimbVideo)
+  const [song, changeSong] = useState("Limb to Limb (ft. Lilia)")
+  const [videoLoop, changeVideoLoop] = useState(LimbVideo)
 
-  const handleAlbumChange = album => {
-    changeUrl(album === "Amnioverse" ? LimbVideo : EarthVideo)
+  const handleSongChange = song => {
+    //change video
+    changeVideoLoop(
+      song === "Limb to Limb (ft. Lilia)" ? LimbVideo : EarthVideo
+    )
+
+    //target and change song
     const audio = document.getElementById("current-song")
     audio.pause()
-    changeAlbum(album)
+    changeSong(song)
     toggleMenu(false)
     audio.play()
   }
@@ -42,9 +46,9 @@ const Layout = props => {
   const globals = {
     menu: menu,
     closeMenu: () => toggleMenu(false),
-    album: album,
-    handleAlbumChange: handleAlbumChange,
-    url: url,
+    song: song,
+    handleSongChange: handleSongChange,
+    videoLoop: videoLoop,
   }
 
   return (
@@ -55,14 +59,10 @@ const Layout = props => {
         menu={menu}
       />
       <main>{props.children({ ...props, ...globals })}</main>
-      <Footer album={album} />
+      <Footer song={song} />
       {/* <Cursor /> */}
     </>
   )
 }
-
-// Layout.propTypes = {
-//   children: PropTypes.node.isRequired,
-// }
 
 export default Layout

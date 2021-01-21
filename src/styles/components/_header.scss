@@ -12,11 +12,6 @@
 }
 .header--link {
   cursor: pointer;
-  transition: color 0.8s ease, filter 2s ease;
-  &:hover {
-    filter: hue-rotate(30deg);
-    color: rgb(200, 42, 232);
-  }
 }
 .header--right {
   width: 20%;

@@ -1,4 +1,4 @@
-.album-menu {
+.menu {
   position: absolute;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   align-items: center;
   pointer-events: none;
 }
-.album-menu::before {
+.menu::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -21,15 +21,7 @@
   z-index: -1;
   background-color: rgba(0, 0, 0, 0.9);
 }
-.album-menu--X {
-  position: absolute;
-  margin: 0;
-  top: 2.5%;
-  right: 2.5%;
-  font-size: 2.75rem;
-  cursor: pointer;
-}
-.album-menu--item {
+.menu--item {
   cursor: pointer;
   pointer-events: initial;
   &:hover {

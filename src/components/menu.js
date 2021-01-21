@@ -1,31 +1,28 @@
 import React from "react"
 
-const Menu = ({ closeMenu, changeAlbum }) => {
-  const albumList = [
+const Menu = ({ handleSongChange }) => {
+  const songList = [
     "Oblivion",
     "Voltaic Acid",
     "Momentine",
     "Earth",
     "Hellix",
     "Thin Air (ft. JFDR)",
-    "Limb To Limb (ft. Lilia)",
+    "Limb to Limb (ft. Lilia)",
     "The Lux Quadrant (ft. JFDR)",
     "Amnioverse",
     "Esc",
   ]
   return (
     <>
-      {/* <h4 className="album-menu--X" onClick={closeMenu}>
-        x
-      </h4> */}
-      <div className="album-menu--list">
-        {albumList.map(album => (
+      <div className="menu--list">
+        {songList.map(song => (
           <h3
-            className="album-menu--item"
-            key={album}
-            onClick={() => changeAlbum(album)}
+            className="menu--item"
+            key={song}
+            onClick={() => handleSongChange(song)}
           >
-            {album}
+            {song}
           </h3>
         ))}
       </div>

@@ -8,14 +8,17 @@ import PlayingIcon from "../assets/vol-play.svg"
 import PausedIcon from "../assets/vol-mute.svg"
 
 import LimbToLimb from "../audio/limb-to-limb.mp3"
-import Unfold from "../audio/unfold.mp3"
-import FourEva from "../audio/4eva.mp3"
-import DontMean from "../audio/don't-mean-a-thing.mp3"
-import HoldingOn from "../audio/holding-on.mp3"
-import WithoutYou from "../audio/without-you.mp3"
-import Between from "../audio/between.mp3"
+import Oblivion from "../audio/oblivion.mp3"
+import VoltaicAcid from "../audio/voltaic-acid.mp3"
+import Momentine from "../audio/momentine.mp3"
+import Earth from "../audio/earth.mp3"
+import Hellix from "../audio/hellix.mp3"
+import ThinAir from "../audio/thin-air.mp3"
+import LuxQuadrant from "../audio/the-lux-quadrant.mp3"
+import Amnioverse from "../audio/amnioverse.mp3"
+import Esc from "../audio/esc.mp3"
 
-const Footer = ({ album }) => {
+const Footer = ({ song }) => {
   const [isPlaying, toggleIsPlaying] = useState(true)
   const togglePause = () => {
     const audio = document.getElementById("current-song")
@@ -70,19 +73,25 @@ const Footer = ({ album }) => {
           loop
           autoPlay
           src={
-            album === "Amnioverse"
+            song === "Limb to Limb (ft. Lilia)"
               ? LimbToLimb
-              : album === "Esrevoinma"
-              ? Unfold
-              : album === "Above_Between_Below"
-              ? Between
-              : album === "The End of Industry"
-              ? HoldingOn
-              : album === "Ruinism"
-              ? FourEva
-              : album === "Lustmore"
-              ? DontMean
-              : WithoutYou
+              : song === "Oblivion"
+              ? Oblivion
+              : song === "Voltaic Acid"
+              ? VoltaicAcid
+              : song === "Momentine"
+              ? Momentine
+              : song === "Earth"
+              ? Earth
+              : song === "Hellix"
+              ? Hellix
+              : song === "Thin Air (ft. JFDR)"
+              ? ThinAir
+              : song === "The Lux Quadrant (ft. JFDR)"
+              ? LuxQuadrant
+              : song === "Amnioverse"
+              ? Amnioverse
+              : Esc
           }
         />
         <div className="volume-icon" onClick={() => togglePause()}>
@@ -91,21 +100,7 @@ const Footer = ({ album }) => {
         <h2 id="now-playing">
           NOW PLAYING -{" "}
           <span id="song-title-wrapper">
-            <span id="song-title-inner">
-              {album === "Amnioverse"
-                ? "Limb To Limb (ft. Lilia)"
-                : album === "Esrevoinma"
-                ? "Unfold"
-                : album === "Above_Between_Below"
-                ? "'BETWEEN'"
-                : album === "The End of Industry"
-                ? "Holding On"
-                : album === "Ruinism"
-                ? "4EVA (ft. Talvi)"
-                : album === "Lustmore"
-                ? "Don't Mean A Thing"
-                : "Without You (ft. Kerry Leatham)"}
-            </span>
+            <span id="song-title-inner">{song}</span>
           </span>
         </h2>
       </div>

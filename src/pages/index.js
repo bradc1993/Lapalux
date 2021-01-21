@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
 import Scene from "../components/scene"
 import Clip from "../components/clip"
 import LoadScreen from "../components/load-screen"
@@ -38,7 +37,7 @@ const IndexPage = () => {
             <AnimatePresence exitBeforeEnter>
               {props.menu ? (
                 <motion.div
-                  className="album-menu"
+                  className="menu"
                   key="menu-wrapper"
                   initial={{ x: "100vw" }}
                   animate={{ x: 0 }}
@@ -51,16 +50,16 @@ const IndexPage = () => {
                 >
                   <Menu
                     key="menu-content"
-                    menu={props.menu}
-                    closeMenu={props.closeMenu}
-                    changeAlbum={props.handleAlbumChange}
+                    // menu={props.menu}
+                    // closeMenu={props.closeMenu}
+                    handleSongChange={props.handleSongChange}
                   />
                 </motion.div>
               ) : null}
             </AnimatePresence>
             {entered ? (
               <Scene>
-                <Clip url={props.url} album={props.album} key={props.url} />
+                <Clip videoLoop={props.videoLoop} key={props.videoLoop} />
               </Scene>
             ) : null}
           </>

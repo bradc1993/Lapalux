@@ -14,10 +14,10 @@ const Menu = ({ closeMenu, changeAlbum }) => {
     "Esc",
   ]
   return (
-    <div className="album-menu">
-      <h4 className="album-menu--X" onClick={closeMenu}>
+    <>
+      {/* <h4 className="album-menu--X" onClick={closeMenu}>
         x
-      </h4>
+      </h4> */}
       <div className="album-menu--list">
         {albumList.map(album => (
           <h3
@@ -29,7 +29,7 @@ const Menu = ({ closeMenu, changeAlbum }) => {
           </h3>
         ))}
       </div>
-    </div>
+    </>
   )
 }
 

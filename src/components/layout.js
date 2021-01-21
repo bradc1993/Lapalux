@@ -44,15 +44,15 @@ const Layout = props => {
     closeMenu: () => toggleMenu(false),
     album: album,
     handleAlbumChange: handleAlbumChange,
-    url: url
+    url: url,
   }
 
   return (
     <>
       <Header
         siteTitle={data.site.siteMetadata?.title || `Title`}
-        openMenu={() => toggleMenu(true)}
-        album={album}
+        openMenu={() => toggleMenu(!menu)}
+        menu={menu}
       />
       <main>{props.children({ ...props, ...globals })}</main>
       <Footer album={album} />

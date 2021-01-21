@@ -8,16 +8,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 .album-menu::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100vw;
-  height: 100vh;
+  height: 85.5%;
   z-index: -1;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .album-menu--X {
   position: absolute;
@@ -29,4 +31,11 @@
 }
 .album-menu--item {
   cursor: pointer;
+  pointer-events: initial;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.9);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
 }

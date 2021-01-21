@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef } from "react"
+import React, { Suspense } from "react"
 import { Canvas, useFrame, useThree } from "react-three-fiber"
 import {
   EffectComposer,
@@ -14,8 +14,7 @@ import {
   Bloom,
 } from "@react-three/postprocessing"
 import { BlendFunction } from "postprocessing"
-import { Html, OrbitControls } from "@react-three/drei"
-import Gif from "../images/lp.gif"
+import { Html } from "@react-three/drei"
 
 // const CameraControls = () => {
 //   const {
@@ -29,7 +28,7 @@ import Gif from "../images/lp.gif"
 //   return <OrbitControls ref={controls} args={[camera, domElement]} />
 // }
 
-const AlbumDisplay = ({ children }) => {
+const Scene = ({ children }) => {
   return (
     <div className="canvas-wrapper">
       <Canvas
@@ -40,7 +39,7 @@ const AlbumDisplay = ({ children }) => {
         <Suspense fallback={null}>{children}</Suspense>
         <EffectComposer>
           {/* <SSAO /> */}
-          
+
           {/* <Vignette offset={0.9} /> */}
           {/* <ToneMapping adaptationRate={0.2} /> */}
           {/* <Scanline /> */}
@@ -58,4 +57,4 @@ const AlbumDisplay = ({ children }) => {
   )
 }
 
-export default AlbumDisplay
+export default Scene

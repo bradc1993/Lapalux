@@ -1,6 +1,7 @@
 import React from "react"
 import { motion } from "framer-motion"
-import Abyss from "../images/limb-3d.gif"
+import Spinner from "../images/limb-3d.gif"
+import DoorIcon from "../assets/exit.svg"
 
 const LoadScreen = ({ handleEnter }) => {
   // const line1 = "'And the abyss also "
@@ -55,7 +56,7 @@ const LoadScreen = ({ handleEnter }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
           exit={{ scale: 2.5, y: 100 }}
-          src={Abyss}
+          src={Spinner}
           alt="Abyss."
         />
       </div>
@@ -70,6 +71,7 @@ const LoadScreen = ({ handleEnter }) => {
           transition={{ duration: 2 }}
         >
           <h4>ENTER</h4>
+          <DoorIcon />
         </motion.button>
       </div>
     </div>

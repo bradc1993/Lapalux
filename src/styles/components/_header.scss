@@ -1,27 +1,40 @@
 .header {
-    padding: 0 1.25%;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  padding: 0 1.25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 .header--left {
-    width: 20%;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.header--link {
+  cursor: pointer;
+  transition: color 0.8s ease, filter 2s ease;
+  &:hover {
+    filter: hue-rotate(30deg);
+    color: rgb(200, 42, 232);
+  }
 }
 .header--right {
-    width: 20%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .header--icon {
-    width: 6%;
-    height: 6%;
-    cursor: pointer;
+  width: 6%;
+  height: 6%;
+  cursor: pointer;
 }
 #album-title {
-    padding-top: 6.6px;
-    margin-left: 3.5px;
+  padding-top: 6.6px;
+  margin-left: 3.5px;
+}
+.morph-icon {
+  position: relative;
+  top: 15px;
+  cursor: pointer;
 }

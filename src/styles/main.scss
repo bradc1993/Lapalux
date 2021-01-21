@@ -2,9 +2,10 @@
 @import "./components/load-screen";
 @import "./components/header";
 @import "./components/image";
-@import "./components/album-display";
+@import "./components/scene";
 @import "./components/footer";
 @import "./components/menu";
+// @import "./pages/index";
 
 @font-face {
   font-family: "El Messiri";
@@ -71,7 +72,7 @@ h1 {
   display: inline;
 }
 h2 {
-  font-family: "Telegraf Ultralight";
+  font-family: "National Light";
   font-size: 1.25rem;
   display: inline;
 }

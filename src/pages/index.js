@@ -2,11 +2,10 @@ import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import Layout from "../components/layout"
-// import Image from "../components/image"
 import SEO from "../components/seo"
 
-import AlbumDisplay from "../components/album-display"
-import Album from "../components/album"
+import Scene from "../components/scene"
+import Clip from "../components/clip"
 import LoadScreen from "../components/load-screen"
 import Menu from "../components/menu"
 
@@ -36,16 +35,33 @@ const IndexPage = () => {
         {props => (
           <>
             <SEO title="Home" />
-            {props.menu ? (
-              <Menu
-                closeMenu={props.closeMenu}
-                changeAlbum={props.handleAlbumChange}
-              />
-            ) : null}
+            <AnimatePresence exitBeforeEnter>
+              {props.menu ? (
+                <motion.div
+                  className="album-menu"
+                  key="menu-wrapper"
+                  initial={{ x: "100vw" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "-100vw" }}
+                  transition={{
+                    duration: 0.85,
+                    type: "spring",
+                    bounce: 0,
+                  }}
+                >
+                  <Menu
+                    key="menu-content"
+                    menu={props.menu}
+                    closeMenu={props.closeMenu}
+                    changeAlbum={props.handleAlbumChange}
+                  />
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
             {entered ? (
-              <AlbumDisplay>
-                <Album url={props.url} album={props.album} key={props.url} />
-              </AlbumDisplay>
+              <Scene>
+                <Clip url={props.url} album={props.album} key={props.url} />
+              </Scene>
             ) : null}
           </>
         )}

@@ -1,28 +1,28 @@
-import React, { useEffect, useRef, useState } from "react"
-import { useTexture } from "@react-three/drei/useTexture"
+import React, { useEffect, useState } from "react"
+// import { useTexture } from "@react-three/drei/useTexture"
 import { useAspect } from "@react-three/drei/useAspect"
 import { meshBounds } from "@react-three/drei/meshBounds"
 // import { Html } from "@react-three/drei"
-import AmnioverseCover from "../images/amnioverse-cropped.jpg"
-import EsrevoinmaCover from "../images/esrevoinma-cropped.jpg"
-import AboveCover from "../images/above-between-below-cropped.jpg"
-import IndustryCover from "../images/the-end-of-industry-cropped.jpg"
-import RuinismCover from "../images/ruinism-cropped.jpg"
-import LustmoreCover from "../images/lustmore-edit-2.jpg"
-import NostalchicCover from "../images/nostalchic-cropped.jpg"
-import { useFrame } from "react-three-fiber"
-import EarthVideo from "../videos/earth.mp4"
-import LimbVideo from "../videos/limb-clip.mp4"
+// import AmnioverseCover from "../images/amnioverse-cropped.jpg"
+// import EsrevoinmaCover from "../images/esrevoinma-cropped.jpg"
+// import AboveCover from "../images/above-between-below-cropped.jpg"
+// import IndustryCover from "../images/the-end-of-industry-cropped.jpg"
+// import RuinismCover from "../images/ruinism-cropped.jpg"
+// import LustmoreCover from "../images/lustmore-edit-2.jpg"
+// import NostalchicCover from "../images/nostalchic-cropped.jpg"
+// import { useFrame } from "react-three-fiber"
+// import EarthVideo from "../videos/earth.mp4"
+// import LimbVideo from "../videos/limb-clip.mp4"
 
-const Album = ({ url, album }) => {
-  const amnioverse = useTexture(AmnioverseCover)
-  const esrevoinma = useTexture(EsrevoinmaCover)
-  const above = useTexture(AboveCover)
-  const industry = useTexture(IndustryCover)
-  const ruinism = useTexture(RuinismCover)
-  const lustmore = useTexture(LustmoreCover)
-  const nostalchic = useTexture(NostalchicCover)
-  const scale = useAspect("cover", 1200, 600)
+const Clip = ({ url, album }) => {
+  // const amnioverse = useTexture(AmnioverseCover)
+  // const esrevoinma = useTexture(EsrevoinmaCover)
+  // const above = useTexture(AboveCover)
+  // const industry = useTexture(IndustryCover)
+  // const ruinism = useTexture(RuinismCover)
+  // const lustmore = useTexture(LustmoreCover)
+  // const nostalchic = useTexture(NostalchicCover)
+  // const scale = useAspect("cover", 1200, 600)
   // const ref = useRef()
   // const [zoom, toggleZoom] = useState(true)
   // useEffect(() => {
@@ -88,4 +88,4 @@ const Album = ({ url, album }) => {
   )
 }
 
-export default Album
+export default Clip

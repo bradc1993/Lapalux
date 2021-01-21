@@ -32,7 +32,7 @@ const Scene = ({ children }) => {
   return (
     <div className="canvas-wrapper">
       <Canvas
-        colorManagement={false}
+        // colorManagement={false}
         orthographic
         // camera={{ position: [0, 0, 1], far: 1, near: 0.1 }}
         // gl={{ antialias: "false", alpha: "false" }}

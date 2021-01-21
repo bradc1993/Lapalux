@@ -11,8 +11,16 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 
-import LimbVideo from "../videos/limb-clip.mp4"
+import LimbVideo from "../videos/limb.mp4"
+import OblivionVideo from "../videos/oblivion.mp4"
+import VoltaicVideo from "../videos/voltaic-acid.mp4"
+import MomentineVideo from "../videos/momentine.mp4"
 import EarthVideo from "../videos/earth.mp4"
+import HellixVideo from "../videos/hellix.mp4"
+import ThinVideo from "../videos/thin-air.mp4"
+import LuxVideo from "../videos/lux-quadrant.mp4"
+import AmnioverseVideo from "../videos/amnioverse.mp4"
+import EscVideo from "../videos/esc.mp4"
 
 const Layout = props => {
   const data = useStaticQuery(graphql`
@@ -32,7 +40,25 @@ const Layout = props => {
   const handleSongChange = song => {
     //change video
     changeVideoLoop(
-      song === "Limb to Limb (ft. Lilia)" ? LimbVideo : EarthVideo
+      song === "Limb to Limb (ft. Lilia)"
+        ? LimbVideo
+        : song === "Oblivion"
+        ? OblivionVideo
+        : song === "Voltaic Acid"
+        ? VoltaicVideo
+        : song === "Momentine"
+        ? MomentineVideo
+        : song === "Earth"
+        ? EarthVideo
+        : song === "Hellix"
+        ? HellixVideo
+        : song === "Thin Air (ft. JFDR)"
+        ? ThinVideo
+        : song === "The Lux Quadrant (ft. JFDR)"
+        ? LuxVideo
+        : song === "Amnioverse"
+        ? AmnioverseVideo
+        : EscVideo
     )
 
     //target and change song

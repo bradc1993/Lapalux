@@ -12,6 +12,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 
+import LimbVideo from "../videos/limb-clip.mp4"
+import EarthVideo from "../videos/earth.mp4"
+
 const Layout = props => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -25,8 +28,10 @@ const Layout = props => {
 
   const [menu, toggleMenu] = useState(false)
   const [album, changeAlbum] = useState("Amnioverse")
+  const [url, changeUrl] = useState(LimbVideo)
 
   const handleAlbumChange = album => {
+    changeUrl(album === "Amnioverse" ? LimbVideo : EarthVideo)
     const audio = document.getElementById("current-song")
     audio.pause()
     changeAlbum(album)
@@ -39,6 +44,7 @@ const Layout = props => {
     closeMenu: () => toggleMenu(false),
     album: album,
     handleAlbumChange: handleAlbumChange,
+    url: url
   }
 
   return (

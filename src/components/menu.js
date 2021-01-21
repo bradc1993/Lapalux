@@ -2,13 +2,16 @@ import React from "react"
 
 const Menu = ({ closeMenu, changeAlbum }) => {
   const albumList = [
-    "Esrevoinma",
+    "Oblivion",
+    "Voltaic Acid",
+    "Momentine",
+    "Earth",
+    "Hellix",
+    "Thin Air (ft. JFDR)",
+    "Limb To Limb (ft. Lilia)",
+    "The Lux Quadrant (ft. JFDR)",
     "Amnioverse",
-    "Above_Between_Below",
-    "The End of Industry",
-    "Ruinism",
-    "Lustmore",
-    "Nostalchic",
+    "Esc",
   ]
   return (
     <div className="album-menu">

@@ -30,6 +30,10 @@
   font-family: "National Light";
   src: url("../fonts/national-2-test-light.woff") format("woff");
 }
+@font-face {
+  font-family: "SK Modernist";
+  src: url("../fonts/Sk-Modernist-Regular.otf") format("opentype");
+}
 
 // * {
 //   cursor: none;
@@ -72,15 +76,15 @@ h2 {
   display: inline;
 }
 h3 {
-  font-family: "El Messiri";
-  font-size: 3.25rem;
+  font-family: "Telegraf Ultralight";
+  font-size: 2rem;
   line-height: 110%;
   text-align: center;
   // display: inline;
 }
 h4 {
-  font-family: "Telegraf Regular";
+  font-family: "Telegraf Ultralight";
   color: white;
   display: inline;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 }

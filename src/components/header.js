@@ -16,7 +16,7 @@ const Header = ({ siteTitle, openMenu, album }) => (
         alt="Click to display albums."
         onClick={openMenu}
       />
-      <h2 id="album-title">{album}</h2>
+      <h2 id="album-title">Songs</h2>
     </div>
   </header>
 )

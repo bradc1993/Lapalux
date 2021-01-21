@@ -21,8 +21,8 @@
   margin-right: 2.5%;
 }
 .load-screen--img {
-  margin-left: 2.5%;
-  width: 22.5%;
+  // margin-left: 2.5%;
+  width: 70%;
   height: auto;
   // animation: fade-in 2s ease forwards;
 }
@@ -45,6 +45,7 @@
   height: fit-content;
   background-color: black;
   padding: 8px 12px;
+  border: none;
   // border: 2px outset white;
   cursor: pointer;
   &:focus {

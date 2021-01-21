@@ -27,7 +27,7 @@ const IndexPage = () => {
           style={{ position: "absolute", width: "100vw", height: "100vh" }}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.3 }}
+          transition={{ duration: 2.5, delay: 2 }}
         >
           <LoadScreen handleEnter={handleEnter} />
         </motion.div>
@@ -42,9 +42,11 @@ const IndexPage = () => {
                 changeAlbum={props.handleAlbumChange}
               />
             ) : null}
-            <AlbumDisplay>
-              <Album album={props.album} />
-            </AlbumDisplay>
+            {entered ? (
+              <AlbumDisplay>
+                <Album url={props.url} album={props.album} key={props.url} />
+              </AlbumDisplay>
+            ) : null}
           </>
         )}
       </Layout>

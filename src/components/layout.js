@@ -27,8 +27,11 @@ const Layout = props => {
   const [album, changeAlbum] = useState("Amnioverse")
 
   const handleAlbumChange = album => {
+    const audio = document.getElementById("current-song")
+    audio.pause()
     changeAlbum(album)
     toggleMenu(false)
+    audio.play()
   }
 
   const globals = {
@@ -46,7 +49,7 @@ const Layout = props => {
         album={album}
       />
       <main>{props.children({ ...props, ...globals })}</main>
-      <Footer />
+      <Footer album={album} />
       {/* <Cursor /> */}
     </>
   )

@@ -70,7 +70,7 @@ const LoadScreen = ({ handleEnter }) => {
           type="button"
           initial={{ opacity: 0, display: "none" }}
           animate={{ opacity: 1, display: "inline-block" }}
-          transition={{ delay: 2 }}
+          transition={{ delay: 1.5 }}
         >
           <h4>ENTER</h4>
         </motion.button>

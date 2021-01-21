@@ -1,8 +1,7 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useTexture } from "@react-three/drei/useTexture"
 import { useAspect } from "@react-three/drei/useAspect"
 import { meshBounds } from "@react-three/drei/meshBounds"
-import { MeshWobbleMaterial, MeshDistortMaterial } from "@react-three/drei"
 // import { Html } from "@react-three/drei"
 import AmnioverseCover from "../images/amnioverse-cropped.jpg"
 import EsrevoinmaCover from "../images/esrevoinma-cropped.jpg"
@@ -11,6 +10,7 @@ import IndustryCover from "../images/the-end-of-industry-cropped.jpg"
 import RuinismCover from "../images/ruinism-cropped.jpg"
 import LustmoreCover from "../images/lustmore-edit-2.jpg"
 import NostalchicCover from "../images/nostalchic-cropped.jpg"
+import { useFrame } from "react-three-fiber"
 
 const Album = ({ album }) => {
   const amnioverse = useTexture(AmnioverseCover)
@@ -21,8 +21,24 @@ const Album = ({ album }) => {
   const lustmore = useTexture(LustmoreCover)
   const nostalchic = useTexture(NostalchicCover)
   const scale = useAspect("cover", 1200, 600)
+  const ref = useRef()
+  const [zoom, toggleZoom] = useState(true)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      toggleZoom(!zoom)
+    }, 30000)
+    return () => clearInterval(interval)
+  })
+
+  useFrame(
+    () =>
+      zoom
+        ? (ref.current.position.z += 0.00015)
+        : (ref.current.position.z -= 0.00015)
+    // ref.current.position.z < 0.5 ? (ref.current.position.z += 0.0003) : null
+  )
   return (
-    <mesh raycast={meshBounds} scale={scale}>
+    <mesh ref={ref} scale={scale}>
       <planeBufferGeometry attach="geometry" />
       <meshBasicMaterial
         attach="material"

@@ -2,15 +2,23 @@ import PropTypes from "prop-types"
 import React, { useState } from "react"
 import { MorphIcon } from "react-svg-buttons"
 
-const Header = ({ siteTitle, openMenu, menu }) => {
+const Header = ({ siteTitle, openAbout, openMenu, menu }) => {
   // const [thickness, changeThickness] = useState(1.5)
   const [color, changeColor] = useState("#FFFFFF")
   return (
     <header className="header">
       <div className="header--left">
         <h1>{siteTitle}</h1>
-        <h2 className="header--link">About</h2>
-        <h2 className="header--link">Store</h2>
+        <h2 className="header--link" onClick={openAbout}>
+          About
+        </h2>
+        <a
+          href="https://lapalux.terriblemerch.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <h2 className="header--link">Store</h2>
+        </a>
       </div>
       <div className="header--right">
         <MorphIcon

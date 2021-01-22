@@ -33,6 +33,7 @@ const Layout = props => {
     }
   `)
 
+  const [about, toggleAbout] = useState(false)
   const [menu, toggleMenu] = useState(false)
   const [song, changeSong] = useState("Limb to Limb (ft. Lilia)")
   const [videoLoop, changeVideoLoop] = useState(LimbVideo)
@@ -70,6 +71,7 @@ const Layout = props => {
   }
 
   const globals = {
+    about: about,
     menu: menu,
     closeMenu: () => toggleMenu(false),
     song: song,
@@ -81,6 +83,7 @@ const Layout = props => {
     <>
       <Header
         siteTitle={data.site.siteMetadata?.title || `Title`}
+        openAbout={() => toggleAbout(!about)}
         openMenu={() => toggleMenu(!menu)}
         menu={menu}
       />

@@ -7,6 +7,7 @@ import Scene from "../components/scene"
 import Clip from "../components/clip"
 import LoadScreen from "../components/load-screen"
 import Menu from "../components/menu"
+import About from "../components/about"
 
 const IndexPage = () => {
   const [entered, triggerEntered] = useState(false)
@@ -35,6 +36,22 @@ const IndexPage = () => {
           <>
             <SEO title="Home" />
             <AnimatePresence exitBeforeEnter>
+              {props.about ? (
+                <motion.div
+                  className="about"
+                  key="about-wrapper"
+                  initial={{ x: "-50vw" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "-50vw" }}
+                  transition={{
+                    duration: 0.85,
+                    type: "spring",
+                    bounce: 0,
+                  }}
+                >
+                  <About />
+                </motion.div>
+              ) : null}
               {props.menu ? (
                 <motion.div
                   className="menu"
@@ -49,7 +66,7 @@ const IndexPage = () => {
                   }}
                 >
                   <Menu
-                    key="menu-content"
+                    key="content"
                     // menu={props.menu}
                     // closeMenu={props.closeMenu}
                     handleSongChange={props.handleSongChange}

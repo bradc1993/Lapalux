@@ -14,19 +14,17 @@ const Menu = ({ handleSongChange }) => {
     "Esc",
   ]
   return (
-    <>
-      <div className="menu--list">
-        {songList.map(song => (
-          <h3
-            className="menu--item"
-            key={song}
-            onClick={() => handleSongChange(song)}
-          >
-            {song}
-          </h3>
-        ))}
-      </div>
-    </>
+    <div className="menu--list">
+      {songList.map(song => (
+        <h3
+          className="menu--item"
+          key={song}
+          onClick={() => handleSongChange(song)}
+        >
+          {song}
+        </h3>
+      ))}
+    </div>
   )
 }
 

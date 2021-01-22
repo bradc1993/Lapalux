@@ -12,6 +12,9 @@
 }
 .header--link {
   cursor: pointer;
+  &:hover {
+    color: red;
+  }
 }
 .header--right {
   width: 20%;

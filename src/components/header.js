@@ -1,9 +1,10 @@
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
 import { MorphIcon } from "react-svg-buttons"
 
 const Header = ({ siteTitle, openMenu, menu }) => {
   // const [thickness, changeThickness] = useState(1.5)
+  const [color, changeColor] = useState("#FFFFFF")
   return (
     <header className="header">
       <div className="header--left">
@@ -14,11 +15,11 @@ const Header = ({ siteTitle, openMenu, menu }) => {
       <div className="header--right">
         <MorphIcon
           type={menu ? "cross" : "bars"}
-          color="#FFFFFF"
+          color={color}
           size={48}
           thickness={1.5}
-          // onMouseEnter={() => changeThickness(2.5)}
-          // onMouseLeave={() => changeThickness(1.5)}
+          onMouseEnter={() => changeColor("#FF0000")}
+          onMouseLeave={() => changeColor("#FFFFFF")}
           onClick={openMenu}
           className="morph-icon"
         />

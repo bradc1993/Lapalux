@@ -87,7 +87,7 @@ const Layout = props => {
         openMenu={() => toggleMenu(!menu)}
         menu={menu}
       />
-      <main>{props.children({ ...props, ...globals })}</main>
+      <main>{props.children({...props, ...globals })}</main>
       <Footer song={song} />
       {/* <Cursor /> */}
     </>

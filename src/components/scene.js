@@ -45,10 +45,10 @@ const Scene = ({ children }) => {
           {/* <Glitch active /> */}
           {/* <Noise /> */}
           {/* <Pixelation /> */}
-          <ChromaticAberration />
+          {/* <ChromaticAberration /> */}
           <DotScreen />
           {/* <Grid /> */}
-          {/* <ChromaticAberration /> */}
+          <ChromaticAberration />
           {/* <Noise /> */}
           {/* <Bloom /> */}
           {/* <Scanline /> */}

@@ -22,7 +22,7 @@ import LuxVideo from "../videos/lux-quadrant.mp4"
 import AmnioverseVideo from "../videos/amnioverse.mp4"
 import EscVideo from "../videos/esc.mp4"
 
-const Layout = props => {
+export default props => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -87,11 +87,9 @@ const Layout = props => {
         openMenu={() => toggleMenu(!menu)}
         menu={menu}
       />
-      <main>{props.children({...props, ...globals })}</main>
+      <main>{props.children({ ...props, ...globals })}</main>
       <Footer song={song} />
       {/* <Cursor /> */}
     </>
   )
 }
-
-export default Layout

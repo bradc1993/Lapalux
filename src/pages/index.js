@@ -20,6 +20,7 @@ const IndexPage = () => {
 
   return (
     <AnimatePresence>
+      <SEO title="Home" />
       {!entered ? (
         <motion.div
           key="loadscreen"
@@ -34,7 +35,6 @@ const IndexPage = () => {
       <Layout>
         {props => (
           <>
-            <SEO title="Home" />
             <AnimatePresence exitBeforeEnter>
               {props.about ? (
                 <motion.div

@@ -20,19 +20,19 @@ const IndexPage = () => {
 
   return (
     <AnimatePresence>
-      <SEO title="Home" />
+      <SEO title="Home" key="seo" />
       {!entered ? (
         <motion.div
-          key="loadscreen"
+          key="loadscreen-wrapper"
           style={{ position: "absolute", width: "100vw", height: "100vh" }}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 2.5, delay: 2 }}
         >
-          <LoadScreen handleEnter={handleEnter} />
+          <LoadScreen key="loadscreen-component" handleEnter={handleEnter} />
         </motion.div>
       ) : null}
-      <Layout>
+      <Layout key="layout">
         {props => (
           <>
             <AnimatePresence exitBeforeEnter>
@@ -49,7 +49,7 @@ const IndexPage = () => {
                     bounce: 0,
                   }}
                 >
-                  <About />
+                  <About key="about-component" />
                 </motion.div>
               ) : null}
               {props.menu ? (
@@ -66,7 +66,7 @@ const IndexPage = () => {
                   }}
                 >
                   <Menu
-                    key="content"
+                    key="menu-component"
                     // menu={props.menu}
                     // closeMenu={props.closeMenu}
                     handleSongChange={props.handleSongChange}
@@ -75,8 +75,12 @@ const IndexPage = () => {
               ) : null}
             </AnimatePresence>
             {entered ? (
-              <Scene>
-                <Clip videoLoop={props.videoLoop} key={props.videoLoop} />
+              <Scene key="scene">
+                <Clip
+                  key="clip"
+                  videoLoop={props.videoLoop}
+                  key={props.videoLoop}
+                />
               </Scene>
             ) : null}
           </>

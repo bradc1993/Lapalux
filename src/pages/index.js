@@ -9,6 +9,17 @@ import LoadScreen from "../components/load-screen"
 import Menu from "../components/menu"
 import About from "../components/about"
 
+import LimbVideo from "../videos/limb.mp4"
+import OblivionVideo from "../videos/oblivion.mp4"
+import VoltaicVideo from "../videos/voltaic-acid.mp4"
+import MomentineVideo from "../videos/momentine.mp4"
+import EarthVideo from "../videos/earth.mp4"
+import HellixVideo from "../videos/hellix.mp4"
+import ThinVideo from "../videos/thin-air.mp4"
+import LuxVideo from "../videos/lux-quadrant.mp4"
+import AmnioverseVideo from "../videos/amnioverse.mp4"
+import EscVideo from "../videos/esc.mp4"
+
 const IndexPage = () => {
   const [entered, triggerEntered] = useState(false)
 
@@ -17,28 +28,70 @@ const IndexPage = () => {
     const audio = document.getElementById("current-song")
     audio.play()
   }
+  const [about, toggleAbout] = useState(false)
+  const [menu, toggleMenu] = useState(false)
+  const [song, changeSong] = useState("Limb to Limb (ft. Lilia)")
+  const [videoLoop, changeVideoLoop] = useState(LimbVideo)
+
+  const handleSongChange = song => {
+    //change video
+    changeVideoLoop(
+      song === "Limb to Limb (ft. Lilia)"
+        ? LimbVideo
+        : song === "Oblivion"
+        ? OblivionVideo
+        : song === "Voltaic Acid"
+        ? VoltaicVideo
+        : song === "Momentine"
+        ? MomentineVideo
+        : song === "Earth"
+        ? EarthVideo
+        : song === "Hellix"
+        ? HellixVideo
+        : song === "Thin Air (ft. JFDR)"
+        ? ThinVideo
+        : song === "The Lux Quadrant (ft. JFDR)"
+        ? LuxVideo
+        : song === "Amnioverse"
+        ? AmnioverseVideo
+        : EscVideo
+    )
+
+    //target and change song
+    const audio = document.getElementById("current-song")
+    audio.pause()
+    changeSong(song)
+    toggleMenu(false)
+    audio.play()
+  }
+
+  const closeMenu = () => {
+    toggleMenu(false)
+  }
 
   return (
-    <Layout key="layout">
-      {props => (
-        <AnimatePresence>
-          <SEO title="Home" key="seo" />
-          {!entered ? (
-            <motion.div
-              key="loadscreen-wrapper"
-              style={{ position: "absolute", width: "100vw", height: "100vh" }}
-              initial={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 2.5, delay: 2 }}
-            >
-              <LoadScreen
-                key="loadscreen-component"
-                handleEnter={handleEnter}
-              />
-            </motion.div>
-          ) : null}
-
-          {props.about ? (
+    <AnimatePresence>
+      <SEO title="Home" key="seo" />
+      {!entered ? (
+        <motion.div
+          key="loadscreen-wrapper"
+          style={{ position: "absolute", width: "100vw", height: "100vh" }}
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2.5, delay: 2 }}
+        >
+          <LoadScreen key="loadscreen-component" handleEnter={handleEnter} />
+        </motion.div>
+      ) : null}
+      <Layout
+        key="layout"
+        menu={menu}
+        toggleMenu={toggleMenu}
+        toggleAbout={toggleAbout}
+        song={song}
+      >
+        <AnimatePresence exitBeforeEnter>
+          {about ? (
             <motion.div
               className="about"
               key="about-wrapper"
@@ -54,7 +107,7 @@ const IndexPage = () => {
               <About key="about-component" />
             </motion.div>
           ) : null}
-          {props.menu ? (
+          {menu ? (
             <motion.div
               className="menu"
               key="menu-wrapper"
@@ -69,24 +122,20 @@ const IndexPage = () => {
             >
               <Menu
                 key="menu-component"
-                // menu={props.menu}
-                // closeMenu={props.closeMenu}
-                handleSongChange={props.handleSongChange}
+                // menu={menu}
+                // closeMenu={closeMenu}
+                handleSongChange={handleSongChange}
               />
             </motion.div>
           ) : null}
-          {entered ? (
-            <Scene key="scene">
-              <Clip
-                key="clip"
-                videoLoop={props.videoLoop}
-                key={props.videoLoop}
-              />
-            </Scene>
-          ) : null}
         </AnimatePresence>
-      )}
-    </Layout>
+        {entered ? (
+          <Scene key="scene">
+            <Clip key="clip" videoLoop={videoLoop} key={videoLoop} />
+          </Scene>
+        ) : null}
+      </Layout>
+    </AnimatePresence>
   )
 }
 

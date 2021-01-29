@@ -65,10 +65,6 @@ const IndexPage = () => {
     audio.play()
   }
 
-  const closeMenu = () => {
-    toggleMenu(false)
-  }
-
   return (
     <AnimatePresence>
       <SEO title="Home" key="seo" />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 // import { useTexture } from "@react-three/drei/useTexture"
 import { useAspect } from "@react-three/drei/useAspect"
 import { meshBounds } from "@react-three/drei/meshBounds"

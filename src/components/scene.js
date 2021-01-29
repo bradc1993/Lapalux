@@ -1,17 +1,9 @@
 import React, { Suspense } from "react"
-import { Canvas, useFrame, useThree } from "react-three-fiber"
+import { Canvas } from "react-three-fiber"
 import {
   EffectComposer,
-  Noise,
-  ToneMapping,
-  SSAO,
-  Scanline,
-  Glitch,
   DotScreen,
   ChromaticAberration,
-  Pixelation,
-  Bloom,
-  Grid,
 } from "@react-three/postprocessing"
 // import { BlendFunction } from "postprocessing"
 // import { Html } from "@react-three/drei"

@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React, { useState } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 // import Cursor from "./cursor"
 import Header from "./header"
@@ -21,15 +21,6 @@ const Layout = ({ menu, toggleAbout, toggleMenu, song, about, children }) => {
       }
     }
   `)
-
-  // const globals = {
-  //   about: about,
-  //   menu: menu,
-  //   closeMenu: closeMenu,
-  //   song: song,
-  //   handleSongChange: handleSongChange,
-  //   videoLoop: videoLoop,
-  // }
 
   return (
     <>

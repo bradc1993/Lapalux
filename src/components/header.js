@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { Link } from "gatsby"
 import React, { useState } from "react"
 import { MorphIcon } from "react-svg-buttons"
 
@@ -9,9 +10,9 @@ const Header = ({ siteTitle, openAbout, openMenu, menu }) => {
     <header className="header">
       <div className="header--left">
         <h1>{siteTitle}</h1>
-        <h2 className="header--link" onClick={openAbout}>
-          About
-        </h2>
+        <Link to="/about">
+          <h2 className="header--link">About</h2>
+        </Link>
         <a
           href="https://lapalux.terriblemerch.com/"
           target="_blank"

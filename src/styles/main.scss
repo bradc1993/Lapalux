@@ -5,7 +5,7 @@
 @import "./components/scene";
 @import "./components/footer";
 @import "./components/menu";
-@import "./components/about";
+@import "./pages/about";
 
 @font-face {
   font-family: "El Messiri";
@@ -64,7 +64,8 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  overflow: hidden;
+  // overflow: hidden;
+  overflow-x: hidden;
 }
 h1 {
   font-family: "Tiempos Black Italic";
@@ -90,7 +91,7 @@ h4 {
   font-size: 1.25rem;
 }
 p {
-  font-family: "Telegraf Regular";
+  font-family: "SK Modernist";
   font-size: 1.05rem;
   // -webkit-text-stroke: 0.05px white;
 }

@@ -36,6 +36,7 @@ const Clip = ({ videoLoop }) => {
     vid.crossOrigin = "Anonymous"
     vid.loop = true
     vid.autoplay = true
+    vid.preload = "auto"
     vid.muted = true
     vid.play()
     return vid

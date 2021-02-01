@@ -8,6 +8,7 @@
   grid-template-columns: 50% 50%;
   grid-template-rows: 60% 40%;
   justify-items: center;
+  overflow: hidden;
 }
 .load-screen--row1 {
   align-self: flex-end;

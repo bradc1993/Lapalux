@@ -26,7 +26,7 @@ const Layout = ({ menu, toggleAbout, toggleMenu, song, about, children }) => {
     <>
       <Header
         siteTitle={data.site.siteMetadata?.title || `Title`}
-        openAbout={() => toggleAbout(!about)}
+        // openAbout={() => toggleAbout(!about)}
         openMenu={() => toggleMenu(!menu)}
         menu={menu}
       />

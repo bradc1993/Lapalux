@@ -7,7 +7,7 @@ import Scene from "../components/scene"
 import Clip from "../components/clip"
 import LoadScreen from "../components/load-screen"
 import Menu from "../components/menu"
-import About from "../components/about"
+// import About from "../components/about"
 
 import LimbVideo from "../videos/limb.mp4"
 import OblivionVideo from "../videos/oblivion.mp4"
@@ -83,11 +83,11 @@ const IndexPage = () => {
         key="layout"
         menu={menu}
         toggleMenu={toggleMenu}
-        toggleAbout={toggleAbout}
+        // toggleAbout={toggleAbout}
         song={song}
       >
         <AnimatePresence exitBeforeEnter>
-          {about ? (
+          {/* {about ? (
             <motion.div
               className="about"
               key="about-wrapper"
@@ -102,7 +102,7 @@ const IndexPage = () => {
             >
               <About key="about-component" />
             </motion.div>
-          ) : null}
+          ) : null} */}
           {menu ? (
             <motion.div
               className="menu"

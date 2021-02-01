@@ -80,12 +80,30 @@ const AboutPage = () => {
                 suggests a sort of birth canal into the unknown.”
               </p>
             </div>
-            <div className="end-section" key="about-section-4">
+            <div className="about-section" id="last-section" key="about-section-2">
+              <img
+                id="image-4"
+                src={AmnioCover}
+                alt="James Turrell's Twilight Epiphany Skyspace installation."
+              />
+              <div className="ending-section">
+                <p className="about-paragraph">
+                  Support for Lapalux has come from the likes of Pitchfork,
+                  Mixmag, FADER, FACT, Dazed, SPIN, The Wire, A.V. Club and many
+                  more. With Benji B, Huw Stephens, Lauren Laverne, Mary-Anne
+                  Hobbs and many others championing his music across radio.
+                </p>
+                <button className="about-btn">
+                  <h4 style={{ color: "black" }}>BUY/STREAM</h4>
+                </button>
+              </div>
+            </div>
+            {/* <div className="end-section" key="about-section-4">
               <img id="image-4" src={AmnioCover} alt="Amnioverse cover." />
               <button className="about-btn">
-                <h4>BUY/STREAM</h4>
+                <h4 style={{ color: "black" }}>BUY/STREAM</h4>
               </button>
-            </div>
+            </div> */}
           </div>
         </HorizontalScroll>
       </div>

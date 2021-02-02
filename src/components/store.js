@@ -3,7 +3,8 @@ import React, { createContext, useContext, useReducer, useState } from "react"
 const MenuContext = createContext()
 const MenuUpdateContext = createContext()
 const SongContext = createContext()
-const SongUpdateContext = createContext()
+const EnteredContext = createContext()
+const EnteredUpdateContext = createContext()
 
 export const useMenuContext = () => {
   const context = useContext(MenuContext)
@@ -41,8 +42,35 @@ export const useSongContext = () => {
 //   return context
 // }
 
+export const useEnteredContext = () => {
+  const context = useContext(EnteredContext)
+  if (context === undefined) {
+    throw new Error(
+      `useEnteredContext must be called within MenuContextProvider`
+    )
+  }
+  return context
+}
+
+export const useEnteredUpdateContext = () => {
+  const context = useContext(EnteredUpdateContext)
+  if (context === undefined) {
+    throw new Error(
+      `useEnteredUpdateContext must be called within MenuContextProvider`
+    )
+  }
+  return context
+}
+
 const MenuContextProvider = ({ children }) => {
   const [menu, toggleMenu] = useState(false)
+
+  const [entered, toggleEntered] = useState(false)
+  const handleEnter = () => {
+    toggleEntered(true)
+    const audio = document.getElementById("current-song")
+    audio.play()
+  }
 
   const initialState = { song: "Limb to Limb (ft. Lilia)" }
   const [state, dispatch] = useReducer((state, action) => {
@@ -73,13 +101,17 @@ const MenuContextProvider = ({ children }) => {
   }, initialState)
 
   return (
-    <MenuContext.Provider value={menu}>
-      <MenuUpdateContext.Provider value={() => toggleMenu(!menu)}>
-        <SongContext.Provider value={{ state, dispatch }}>
-          {children}
-        </SongContext.Provider>
-      </MenuUpdateContext.Provider>
-    </MenuContext.Provider>
+    <EnteredContext.Provider value={entered}>
+      <EnteredUpdateContext.Provider value={() => handleEnter()}>
+        <MenuContext.Provider value={menu}>
+          <MenuUpdateContext.Provider value={() => toggleMenu(!menu)}>
+            <SongContext.Provider value={{ state, dispatch }}>
+              {children}
+            </SongContext.Provider>
+          </MenuUpdateContext.Provider>
+        </MenuContext.Provider>
+      </EnteredUpdateContext.Provider>
+    </EnteredContext.Provider>
   )
 }
 

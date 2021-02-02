@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
+  useEnteredContext,
   useMenuContext,
-  useMenuUpdateContext,
   useSongContext,
 } from "../components/store"
 import SEO from "../components/seo"
@@ -24,16 +24,10 @@ import EscVideo from "../videos/esc.mp4"
 
 const IndexPage = () => {
   const menu = useMenuContext()
+  const entered = useEnteredContext()
   // const toggleMenu = useMenuUpdateContext()
   const { state } = useSongContext()
   const song = state["song"]
-
-  const [entered, triggerEntered] = useState(false)
-  const handleEnter = () => {
-    triggerEntered(true)
-    const audio = document.getElementById("current-song")
-    audio.play()
-  }
 
   return (
     <AnimatePresence>
@@ -46,7 +40,7 @@ const IndexPage = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 2.5, delay: 2 }}
         >
-          <LoadScreen key="loadscreen-component" handleEnter={handleEnter} />
+          <LoadScreen key="loadscreen-component" />
         </motion.div>
       ) : null}
       <AnimatePresence exitBeforeEnter>

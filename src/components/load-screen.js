@@ -1,9 +1,10 @@
 import React from "react"
+import { useEnteredUpdateContext } from "./store"
 import { motion } from "framer-motion"
 import Spinner from "../images/limb-3d.gif"
 import DoorIcon from "../assets/exit.svg"
 
-const LoadScreen = ({ handleEnter }) => {
+const LoadScreen = () => {
   // const line1 = "'And the abyss also "
   // const line2 = "gazes into you...'"
   // const sentence = {
@@ -25,6 +26,7 @@ const LoadScreen = ({ handleEnter }) => {
   //     rotate: 0,
   //   },
   // }
+  const handleEnter = useEnteredUpdateContext()
   return (
     <div className="load-screen">
       <div className="load-screen--row1">
@@ -63,7 +65,7 @@ const LoadScreen = ({ handleEnter }) => {
       <div className="load-screen--btn">
         <motion.button
           className="enter-btn"
-          onClick={handleEnter}
+          onClick={() => handleEnter()}
           type="button"
           initial={{ opacity: 0, display: "none" }}
           animate={{ opacity: 1, display: "inline-block" }}

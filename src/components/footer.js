@@ -33,6 +33,7 @@ const Footer = () => {
   }
 
   const { state } = useSongContext()
+  const song = state["song"]
   return (
     <footer className="footer">
       <div className="footer--left">
@@ -76,23 +77,23 @@ const Footer = () => {
           loop
           autoPlay
           src={
-            state === "Limb to Limb (ft. Lilia)"
+            song === "Limb to Limb (ft. Lilia)"
               ? LimbToLimb
-              : state === "Oblivion"
+              : song === "Oblivion"
               ? Oblivion
-              : state === "Voltaic Acid"
+              : song === "Voltaic Acid"
               ? VoltaicAcid
-              : state === "Momentine"
+              : song === "Momentine"
               ? Momentine
-              : state === "Earth"
+              : song === "Earth"
               ? Earth
-              : state === "Hellix"
+              : song === "Hellix"
               ? Hellix
-              : state === "Thin Air (ft. JFDR)"
+              : song === "Thin Air (ft. JFDR)"
               ? ThinAir
-              : state === "The Lux Quadrant (ft. JFDR)"
+              : song === "The Lux Quadrant (ft. JFDR)"
               ? LuxQuadrant
-              : state === "Amnioverse"
+              : song === "Amnioverse"
               ? Amnioverse
               : Esc
           }
@@ -103,7 +104,7 @@ const Footer = () => {
         <h2 id="now-playing">
           NOW PLAYING -{" "}
           <span id="song-title-wrapper">
-            <span id="song-title-inner">{state.toString()}</span>
+            <span id="song-title-inner">{song}</span>
           </span>
         </h2>
       </div>

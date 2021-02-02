@@ -37,7 +37,7 @@ const AboutPage = () => {
                 <motion.img
                   ref={ref}
                   initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                  animate={inView ? { opacity: 1 } : null}
                   transition={{ duration: 0.8 }}
                   id="image-3"
                   src={Turrell}

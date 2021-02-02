@@ -59,12 +59,14 @@ export default ({ children }) => {
   }
 
   useEffect(() => {
+    document.body.style.overflowY = "auto"
     handleDynamicHeight(objectRef, setDynamicHeight)
     window.addEventListener("resize", resizeHandler)
     // applyScrollListener(containerRef, setTranslateX)
     window.addEventListener("scroll", scrollHandler)
 
     return function cleanup() {
+      document.body.style.overflow = "hidden"
       window.removeEventListener("scroll", scrollHandler)
       window.removeEventListener("resize", resizeHandler)
     }

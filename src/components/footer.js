@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useSongContext } from "./store"
 
 import SpotifyIcon from "../images/spotify.png"
 import InstagramIcon from "../images/instagram.png"
@@ -18,7 +19,7 @@ import LuxQuadrant from "../audio/the-lux-quadrant.mp3"
 import Amnioverse from "../audio/amnioverse.mp3"
 import Esc from "../audio/esc.mp3"
 
-const Footer = ({ song }) => {
+const Footer = () => {
   const [isPlaying, toggleIsPlaying] = useState(true)
   const togglePause = () => {
     const audio = document.getElementById("current-song")
@@ -30,6 +31,8 @@ const Footer = ({ song }) => {
       audio.play()
     }
   }
+
+  const { state } = useSongContext()
   return (
     <footer className="footer">
       <div className="footer--left">
@@ -73,23 +76,23 @@ const Footer = ({ song }) => {
           loop
           autoPlay
           src={
-            song === "Limb to Limb (ft. Lilia)"
+            state === "Limb to Limb (ft. Lilia)"
               ? LimbToLimb
-              : song === "Oblivion"
+              : state === "Oblivion"
               ? Oblivion
-              : song === "Voltaic Acid"
+              : state === "Voltaic Acid"
               ? VoltaicAcid
-              : song === "Momentine"
+              : state === "Momentine"
               ? Momentine
-              : song === "Earth"
+              : state === "Earth"
               ? Earth
-              : song === "Hellix"
+              : state === "Hellix"
               ? Hellix
-              : song === "Thin Air (ft. JFDR)"
+              : state === "Thin Air (ft. JFDR)"
               ? ThinAir
-              : song === "The Lux Quadrant (ft. JFDR)"
+              : state === "The Lux Quadrant (ft. JFDR)"
               ? LuxQuadrant
-              : song === "Amnioverse"
+              : state === "Amnioverse"
               ? Amnioverse
               : Esc
           }
@@ -100,7 +103,7 @@ const Footer = ({ song }) => {
         <h2 id="now-playing">
           NOW PLAYING -{" "}
           <span id="song-title-wrapper">
-            <span id="song-title-inner">{song}</span>
+            <span id="song-title-inner">{state.toString()}</span>
           </span>
         </h2>
       </div>

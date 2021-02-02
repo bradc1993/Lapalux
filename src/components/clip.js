@@ -28,7 +28,7 @@ const Clip = ({ videoLoop }) => {
   // )
   // const Limb = LimbVideo
   // const Earth = EarthVideo
-  const [x, y] = useAspect("cover", 1920, 1080)
+  const [x, y] = useAspect("cover", 1920, 1080)s
 
   const [video] = useState(() => {
     const vid = document.createElement("video")

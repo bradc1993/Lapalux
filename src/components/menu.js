@@ -1,6 +1,8 @@
 import React from "react"
+import { useSongContext } from "./store"
 
-const Menu = ({ handleSongChange }) => {
+const Menu = () => {
+  const { dispatch } = useSongContext()
   const songList = [
     "Oblivion",
     "Voltaic Acid",
@@ -19,7 +21,7 @@ const Menu = ({ handleSongChange }) => {
         <h3
           className="menu--item"
           key={song}
-          onClick={() => handleSongChange(song)}
+          onClick={() => dispatch({ type: song })}
         >
           {song}
         </h3>

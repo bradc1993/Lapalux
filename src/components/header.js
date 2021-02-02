@@ -1,11 +1,19 @@
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import React, { useState } from "react"
+// import { store } from "./store-old"
 import { MorphIcon } from "react-svg-buttons"
+import { useMenuContext } from "./store"
+import { useMenuUpdateContext } from "./store"
 
-const Header = ({ siteTitle, openAbout, openMenu, menu }) => {
+const Header = ({ siteTitle }) => {
   // const [thickness, changeThickness] = useState(1.5)
   const [color, changeColor] = useState("#FFFFFF")
+
+  // const globalState = useContext(store)
+  // const { dispatch } = globalState
+  const menu = useMenuContext()
+  const toggleMenu = useMenuUpdateContext()
   return (
     <header className="header">
       <div className="header--left">
@@ -29,7 +37,7 @@ const Header = ({ siteTitle, openAbout, openMenu, menu }) => {
           thickness={1.5}
           onMouseEnter={() => changeColor("#FF0000")}
           onMouseLeave={() => changeColor("#FFFFFF")}
-          onClick={openMenu}
+          onClick={() => toggleMenu(!menu)}
           className="morph-icon"
         />
         {/* <img

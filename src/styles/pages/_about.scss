@@ -97,12 +97,15 @@
   grid-row: 1;
   //   align-self: start;
 }
-
+.about-btn-wrapper {
+    width: 20%;
+    height: 52%;
+}
 .about-btn {
   grid-row: 2;
   //   position: absolute;
-  width: 20%;
-  height: 52%;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background-color: white;
   padding: 8px 12px;

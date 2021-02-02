@@ -1,7 +1,11 @@
-import React, { useState } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-
-import Layout from "../components/layout"
+import {
+  useMenuContext,
+  useMenuUpdateContext,
+  useSongContext,
+} from "../components/store"
+// import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Scene from "../components/scene"
 import Clip from "../components/clip"
@@ -21,6 +25,11 @@ import AmnioverseVideo from "../videos/amnioverse.mp4"
 import EscVideo from "../videos/esc.mp4"
 
 const IndexPage = () => {
+  const menu = useMenuContext()
+  const toggleMenu = useMenuUpdateContext()
+  const { state } = useSongContext()
+  const song = state["song"]
+
   const [entered, triggerEntered] = useState(false)
 
   const handleEnter = () => {
@@ -28,12 +37,12 @@ const IndexPage = () => {
     const audio = document.getElementById("current-song")
     audio.play()
   }
-  const [about, toggleAbout] = useState(false)
-  const [menu, toggleMenu] = useState(false)
-  const [song, changeSong] = useState("Limb to Limb (ft. Lilia)")
+  // const [about, toggleAbout] = useState(false)
+  // const [menu, toggleMenu] = useState(false)
+  // const [song, changeSong] = useState("Limb to Limb (ft. Lilia)")
   const [videoLoop, changeVideoLoop] = useState(LimbVideo)
 
-  const handleSongChange = song => {
+  const handleSongChange = () => {
     //change video
     changeVideoLoop(
       song === "Limb to Limb (ft. Lilia)"
@@ -60,13 +69,18 @@ const IndexPage = () => {
     //target and change song
     const audio = document.getElementById("current-song")
     audio.pause()
-    changeSong(song)
+    // changeSong(song)
     toggleMenu(false)
     audio.play()
   }
 
+  // useEffect(() => {
+  //   handleSongChange()
+  // }, [song])
+
   return (
     <AnimatePresence>
+      {console.log(song)}
       <SEO title="Home" key="seo" />
       {!entered ? (
         <motion.div
@@ -79,58 +93,34 @@ const IndexPage = () => {
           <LoadScreen key="loadscreen-component" handleEnter={handleEnter} />
         </motion.div>
       ) : null}
-      <Layout
-        key="layout"
-        menu={menu}
-        toggleMenu={toggleMenu}
-        // toggleAbout={toggleAbout}
-        song={song}
-      >
-        <AnimatePresence exitBeforeEnter>
-          {/* {about ? (
-            <motion.div
-              className="about"
-              key="about-wrapper"
-              initial={{ x: "-50vw" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-50vw" }}
-              transition={{
-                duration: 0.85,
-                type: "spring",
-                bounce: 0,
-              }}
-            >
-              <About key="about-component" />
-            </motion.div>
-          ) : null} */}
-          {menu ? (
-            <motion.div
-              className="menu"
-              key="menu-wrapper"
-              initial={{ x: "50vw" }}
-              animate={{ x: 0 }}
-              exit={{ x: "50vw" }}
-              transition={{
-                duration: 0.85,
-                type: "spring",
-                bounce: 0,
-              }}
-            >
-              <Menu
-                key="menu-component"
-                // menu={menu}
-                // closeMenu={closeMenu}
-                handleSongChange={handleSongChange}
-              />
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
-        {entered ? (
-          <Scene key="scene">
-            <Clip key="clip" videoLoop={videoLoop} key={videoLoop} />
-          </Scene>
+      <AnimatePresence exitBeforeEnter>
+        {menu ? (
+          <motion.div
+            className="menu"
+            key="menu-wrapper"
+            initial={{ x: "50vw" }}
+            animate={{ x: 0 }}
+            exit={{ x: "50vw" }}
+            transition={{
+              duration: 0.85,
+              type: "spring",
+              bounce: 0,
+            }}
+          >
+            <Menu
+              key="menu-component"
+              // menu={menu}
+              // closeMenu={closeMenu}
+              handleSongChange={handleSongChange}
+            />
+          </motion.div>
         ) : null}
-      </Layout>
+      </AnimatePresence>
+      {entered ? (
+        <Scene key="scene">
+          <Clip key="clip" videoLoop={videoLoop} key={videoLoop} />
+        </Scene>
+      ) : null}
     </AnimatePresence>
   )
 }

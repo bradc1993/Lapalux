@@ -16,6 +16,10 @@
   src: url("../fonts/tiempos-headline-black-italic.woff") format("woff");
 }
 @font-face {
+  font-family: "Tiempos Black";
+  src: url("../fonts/tiempos-headline-black.woff") format("woff");
+}
+@font-face {
   font-family: "Telegraf Medium";
   src: url("../fonts/telegraf-medium.woff2") format("woff2");
 }
@@ -85,8 +89,13 @@ h3 {
   // display: inline;
 }
 h4 {
-  font-family: "Tiempos Black Italic";
+  font-family: "Telegraf Ultralight";
   color: white;
+  display: inline;
+  font-size: 1.25rem;
+}
+h5 {
+  font-family: "Tiempos Black Italic";
   display: inline;
   font-size: 1.1rem;
 }

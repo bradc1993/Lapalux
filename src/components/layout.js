@@ -13,7 +13,7 @@ import MenuContextProvider from "./store"
 import Header from "./header"
 import Footer from "./footer"
 
-const Layout = ({ menu, toggleAbout, toggleMenu, song, about, children }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {

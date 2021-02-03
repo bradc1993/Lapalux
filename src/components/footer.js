@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { useSongContext } from "./store"
+import { useEnteredContext } from "./store"
+import { motion } from "framer-motion"
 
 import SpotifyIcon from "../images/spotify.png"
 import InstagramIcon from "../images/instagram.png"
@@ -32,44 +34,63 @@ const Footer = () => {
     }
   }
 
+  const entered = useEnteredContext()
   const { state } = useSongContext()
   const song = state["song"]
+
+  const variants = {
+    visible: {
+      y: 0,
+      transition: {
+        delay: 2.4,
+        duration: 1.2,
+      },
+    },
+    hidden: { y: "10vh" },
+  }
   return (
     <footer className="footer">
-      <div className="footer--left">
-        <a
-          className="footer--icon-wrapper"
-          href="https://open.spotify.com/artist/46Ce0QmI1mE2bl5VQ4P9N8"
-          target="_blank"
-          rel="noreferrer"
+      {entered ? (
+        <motion.div
+          className="footer--left"
+          variants={variants}
+          initial="hidden"
+          animate="visible"
         >
-          <img className="footer--icon" src={SpotifyIcon} alt="Spotify" />
-        </a>
-        <a
-          className="footer--icon-wrapper"
-          href="https://www.instagram.com/lapaluxmusic/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img className="footer--icon" src={InstagramIcon} alt="Instagram" />
-        </a>
-        <a
-          className="footer--icon-wrapper"
-          href="https://www.facebook.com/Lapaluxmusic/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img className="footer--icon" src={FacebookIcon} alt="Facebook" />
-        </a>
-        <a
-          className="footer--icon-wrapper"
-          href="https://twitter.com/lapalux"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img className="footer--icon" src={TwitterIcon} alt="Twitter" />
-        </a>
-      </div>
+          <a
+            className="footer--icon-wrapper"
+            href="https://open.spotify.com/artist/46Ce0QmI1mE2bl5VQ4P9N8"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img className="footer--icon" src={SpotifyIcon} alt="Spotify" />
+          </a>
+          <a
+            className="footer--icon-wrapper"
+            href="https://www.instagram.com/lapaluxmusic/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img className="footer--icon" src={InstagramIcon} alt="Instagram" />
+          </a>
+          <a
+            className="footer--icon-wrapper"
+            href="https://www.facebook.com/Lapaluxmusic/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img className="footer--icon" src={FacebookIcon} alt="Facebook" />
+          </a>
+          <a
+            className="footer--icon-wrapper"
+            href="https://twitter.com/lapalux"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img className="footer--icon" src={TwitterIcon} alt="Twitter" />
+          </a>
+        </motion.div>
+      ) : null}
       <div className="footer--audio-player">
         <audio
           id="current-song"
@@ -98,15 +119,19 @@ const Footer = () => {
               : Esc
           }
         />
-        <div className="volume-icon" onClick={() => togglePause()}>
-          {isPlaying ? <PlayingIcon /> : <PausedIcon />}
-        </div>
-        <h2 id="now-playing">
-          NOW PLAYING -{" "}
-          <span id="song-title-wrapper">
-            <span id="song-title-inner">{song}</span>
-          </span>
-        </h2>
+        {entered ? (
+          <motion.div variants={variants} initial="hidden" animate="visible">
+            <div className="volume-icon" onClick={() => togglePause()}>
+              {isPlaying ? <PlayingIcon /> : <PausedIcon />}
+            </div>
+            <h2 id="now-playing">
+              NOW PLAYING -{" "}
+              <span id="song-title-wrapper">
+                <span id="song-title-inner">{song}</span>
+              </span>
+            </h2>
+          </motion.div>
+        ) : null}
       </div>
     </footer>
   )

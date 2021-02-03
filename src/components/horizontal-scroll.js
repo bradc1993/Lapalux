@@ -21,7 +21,7 @@ const StickyInnerContainer = styled.div`
   top: 7.5vh;
   height: 85vh;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   pointer-events: auto;
 `
 
@@ -74,7 +74,7 @@ export default ({ children }) => {
   // }
 
   useEffect(() => {
-    document.body.style.overflowY = "auto"
+    document.body.style.overflowY = "overlay"
     handleDynamicHeight(objectRef, setDynamicHeight)
     window.addEventListener("resize", resizeHandler)
     // applyScrollListener(containerRef, setTranslateX)

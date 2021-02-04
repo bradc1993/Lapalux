@@ -38,7 +38,9 @@ const Header = ({ siteTitle, onAboutPage }) => {
           animate="visible"
         >
           <div className="header--left">
-            <h1>{siteTitle}</h1>
+            <Link to="/">
+              <h1 className="site-title">{siteTitle}</h1>
+            </Link>
             <Link to="/about">
               <h2 className="header--link">About</h2>
             </Link>

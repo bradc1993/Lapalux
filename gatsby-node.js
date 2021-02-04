@@ -12,5 +12,8 @@ exports.onCreatePage = ({ page, actions }) => {
   if (page.path.match(/about/)) {
     page.context.layout = "about"
     createPage(page)
+  } else {
+    page.context.layout = "index"
+    createPage(page)
   }
 }

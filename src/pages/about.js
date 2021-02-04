@@ -34,15 +34,15 @@ const AboutPage = () => {
     hidden: { opacity: 0, transition: { when: "afterChildren" } },
   }
   const gridItemTop = {
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
     hidden: { opacity: 0, y: -5, transition: { duration: 0.5 } },
   }
   const gridItemBottom = {
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
     hidden: { opacity: 0, y: 10, transition: { duration: 0.5 } },
   }
   const gridItemRight = {
-    visible: { opacity: 1, x: 0, transition: { duration: 0.7 } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
     hidden: { opacity: 0, x: 10, transition: { duration: 0.5 } },
   }
   //END
@@ -189,7 +189,7 @@ const AboutPage = () => {
                 />
               )}
             </InView>
-            <InView threshold={0.4}>
+            <InView threshold={0.3}>
               {({ ref, inView }) => (
                 <div id="end-parent-grid">
                   <motion.p

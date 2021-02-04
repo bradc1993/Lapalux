@@ -14,6 +14,9 @@
   justify-content: space-between;
   align-items: baseline;
 }
+.site-title {
+  display: inline-block;
+}
 .header--link {
   cursor: pointer;
   &:hover {

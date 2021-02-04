@@ -77,7 +77,7 @@ const AboutPage = () => {
             )}
           </InView>
           <div className="about-section" key="about-section-2">
-            <InView threshold={globalThreshold}>
+            <InView threshold={0.4}>
               {({ ref, inView }) => (
                 <motion.img
                   ref={ref}
@@ -173,7 +173,7 @@ const AboutPage = () => {
           </div>
           <div
             className="about-section"
-            id="last-section"
+            id="smaller-section"
             key="about-section-4"
           >
             <InView threshold={0.4}>
@@ -191,7 +191,7 @@ const AboutPage = () => {
             </InView>
             <InView threshold={0.4}>
               {({ ref, inView }) => (
-                <div className="ending-section">
+                <div id="end-parent-grid">
                   <motion.p
                     ref={ref}
                     variants={fadeIn}
@@ -205,23 +205,45 @@ const AboutPage = () => {
                     Mary-Anne Hobbs and many others championing his music across
                     radio.
                   </motion.p>
-                  <motion.a
-                    className="about-btn-wrapper"
-                    href="https://lapalux.lnk.to/amnioverse"
-                    target="_blank"
-                    rel="noreferrer"
-                    initial={{ opacity: 0, scale: 1.12 }}
-                    animate={
-                      inView
-                        ? { opacity: 1, scale: 1 }
-                        : { opacity: 0, scale: 1.12 }
-                    }
-                    transition={{ delay: 0.3, duration: 0.8 }}
-                  >
-                    <button className="about-btn">
-                      <h5 style={{ color: "black" }}>BUY/STREAM</h5>
-                    </button>
-                  </motion.a>
+                  {/* <motion.p className="review-paragraph">
+                    "...anchored in a softness rich in texture and weighty with
+                    emotion."
+                    <br /> - <span className="critic">EXCLAIM</span>
+                  </motion.p> */}
+                  {/* <motion.p className="review-paragraph">
+                    "...an ambitious, striking record that seems to assess the
+                    entirety of existence, and it's hard not to feel moved by
+                    it."
+                    <br /> - <span className="critic">ALLMUSIC</span>
+                  </motion.p> */}
+                  <div className="about-btn-grid">
+                    <motion.a
+                      className="about-link-wrapper"
+                      href="https://lapalux.lnk.to/amnioverse"
+                      target="_blank"
+                      rel="noreferrer"
+                      initial={{ opacity: 0, scale: 1.12 }}
+                      animate={
+                        inView
+                          ? { opacity: 1, scale: 1 }
+                          : { opacity: 0, scale: 1.12 }
+                      }
+                      transition={{ delay: 0.3, duration: 0.8 }}
+                    >
+                      <button className="circle-btn">
+                        <h5 style={{ color: "black", whiteSpace: "nowrap" }}>
+                          BUY/STREAM
+                        </h5>
+                      </button>
+                    </motion.a>
+                    {/* <Link to="/" className="about-link-wrapper">
+                      <button className="back-btn">
+                        <h5 style={{ color: "black", whiteSpace: "nowrap" }}>
+                          go back
+                        </h5>
+                      </button>
+                    </Link> */}
+                  </div>
                 </div>
               )}
             </InView>

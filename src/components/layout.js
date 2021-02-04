@@ -5,15 +5,14 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React, { useContext } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-// import Cursor from "./cursor"
 // import { StateProvider, store } from "./store"
 import MenuContextProvider from "./store"
 import Header from "./header"
 import Footer from "./footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pageContext }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,15 +28,13 @@ const Layout = ({ children }) => {
 
   return (
     <MenuContextProvider>
+      {console.log(pageContext)}
       <Header
         siteTitle={data.site.siteMetadata?.title || `Title`}
-        // openAbout={() => toggleAbout(!about)}
-        // openMenu={() => toggleMenu(!menu)}
-        // menu={menu}
+        onAboutPage={pageContext.layout === "about" ? true : false}
       />
       <main>{children}</main>
-      <Footer />
-      {/* <Cursor /> */}
+      <Footer onAboutPage={pageContext.layout === "about" ? true : false} />
     </MenuContextProvider>
   )
 }

@@ -8,7 +8,7 @@ import { useMenuContext } from "./store"
 import { useMenuUpdateContext } from "./store"
 import { useEnteredContext } from "./store"
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, onAboutPage }) => {
   // const [thickness, changeThickness] = useState(1.5)
   const [color, changeColor] = useState("#FFFFFF")
 
@@ -23,14 +23,14 @@ const Header = ({ siteTitle }) => {
       y: 0,
       transition: {
         delay: 0,
-        duration: 1.2,
+        duration: 1.3,
       },
     },
     hidden: { y: "-10vh" },
   }
   return (
     <>
-      {entered ? (
+      {entered || onAboutPage ? (
         <motion.header
           className="header"
           variants={variants}

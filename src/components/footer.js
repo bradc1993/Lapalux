@@ -21,7 +21,7 @@ import LuxQuadrant from "../audio/the-lux-quadrant.mp3"
 import Amnioverse from "../audio/amnioverse.mp3"
 import Esc from "../audio/esc.mp3"
 
-const Footer = () => {
+const Footer = ({ onAboutPage }) => {
   const [isPlaying, toggleIsPlaying] = useState(true)
   const togglePause = () => {
     const audio = document.getElementById("current-song")
@@ -42,15 +42,15 @@ const Footer = () => {
     visible: {
       y: 0,
       transition: {
-        delay: 2.4,
-        duration: 1.2,
+        delay: 0,
+        duration: 1.3,
       },
     },
     hidden: { y: "10vh" },
   }
   return (
     <footer className="footer">
-      {entered ? (
+      {entered || onAboutPage ? (
         <motion.div
           className="footer--left"
           variants={variants}

@@ -59,7 +59,7 @@ export default ({ children }) => {
     [0, dynamicHeight],
     [0, -dynamicHeight]
   )
-  const physics = { damping: 15, mass: 0.27, stiffness: 55 }
+  const physics = { damping: 10, mass: 0.27, stiffness: 55 }
   const spring = useSpring(transform, physics)
 
   const containerRef = useRef(null)

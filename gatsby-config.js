@@ -16,17 +16,17 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: "gatsby-plugin-layout",
+      options: {
+        component: require.resolve(`./src/components/layout.js`),
+      },
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
           include: /assets/,
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/layout.js`),
       },
     },
     `gatsby-transformer-sharp`,

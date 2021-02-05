@@ -7,6 +7,9 @@ import { MorphIcon } from "react-svg-buttons"
 import { useMenuContext } from "./store"
 import { useMenuUpdateContext } from "./store"
 import { useEnteredContext } from "./store"
+// import { useMiniMenuContext } from "./store"
+// import { useMiniMenuUpdateContext } from "./store"
+// import MiniMenu from "./mini-menu"
 
 const Header = ({ siteTitle, onAboutPage }) => {
   // const [thickness, changeThickness] = useState(1.5)
@@ -16,10 +19,13 @@ const Header = ({ siteTitle, onAboutPage }) => {
   // const { dispatch } = globalState
   const menu = useMenuContext()
   const toggleMenu = useMenuUpdateContext()
+  // const miniMenu = useMiniMenuContext()
+  // const toggleMiniMenu = useMiniMenuUpdateContext()
   const entered = useEnteredContext()
 
   const variants = {
     visible: {
+      x: 0,
       y: 0,
       transition: {
         delay: 0,
@@ -27,6 +33,7 @@ const Header = ({ siteTitle, onAboutPage }) => {
       },
     },
     hidden: { y: "-10vh" },
+    about: { x: "45vw", transition: { duration: 1.8 } },
   }
   return (
     <>
@@ -38,38 +45,73 @@ const Header = ({ siteTitle, onAboutPage }) => {
           animate="visible"
         >
           <div className="header--left">
-            <Link to="/">
-              <h1 className="site-title">{siteTitle}</h1>
-            </Link>
-            <Link to="/about">
-              <h2 className="header--link">About</h2>
-            </Link>
-            <a
-              href="https://lapalux.terriblemerch.com/"
-              target="_blank"
-              rel="noreferrer"
+            <motion.div
+              className="title-wrapper"
+              variants={variants}
+              initial={false}
+              animate={onAboutPage ? "about" : "visible"}
             >
-              <h2 className="header--link">Store</h2>
-            </a>
+              <Link to="/">
+                <h1 className="site-title">{siteTitle}</h1>
+              </Link>
+            </motion.div>
+            <motion.div
+              className="link-wrapper"
+              initial={false}
+              animate={
+                onAboutPage ? { y: -100, opacity: 0 } : { y: 0, opacity: 1 }
+              }
+              transition={
+                onAboutPage ? { duration: 0.7 } : { delay: 0.7, duration: 0.85 }
+              }
+            >
+              <Link to="/about">
+                <h2 className="header--link">About</h2>
+              </Link>
+            </motion.div>
+            <motion.div
+              className="link-wrapper"
+              initial={false}
+              animate={
+                onAboutPage ? { y: -100, opacity: 0 } : { y: 0, opacity: 1 }
+              }
+              transition={
+                onAboutPage
+                  ? { delay: 0.3, duration: 0.7 }
+                  : { delay: 0.5, duration: 0.85 }
+              }
+            >
+              <a
+                href="https://lapalux.terriblemerch.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <h2 className="header--link">Store</h2>
+              </a>
+            </motion.div>
           </div>
           <div className="header--right">
-            <MorphIcon
-              type={menu ? "cross" : "bars"}
-              color={color}
-              size={48}
-              thickness={1.5}
-              onMouseEnter={() => changeColor("#FF0000")}
-              onMouseLeave={() => changeColor("#FFFFFF")}
-              onClick={() => toggleMenu(!menu)}
-              className="morph-icon"
-            />
-            {/* <img
-        className="header--icon"
-        src={GridIcon}
-        alt="Click to display albums."
-        onClick={openMenu}
-      /> */}
-            {/* <h2 id="album-title">Songs</h2> */}
+            {/* {onAboutPage && miniMenu ? <MiniMenu /> : null} */}
+            <motion.div
+              initial={{ y: 0, opacity: 1 }}
+              animate={
+                onAboutPage ? { y: -100, opacity: 0 } : { y: 0, opacity: 1 }
+              }
+              transition={
+                onAboutPage ? { delay: 0.9, duration: 0.7 } : { duration: 0.85 }
+              }
+            >
+              <MorphIcon
+                type={menu ? "cross" : "bars"}
+                color={color}
+                size={48}
+                thickness={1.5}
+                onMouseEnter={() => changeColor("#FF0000")}
+                onMouseLeave={() => changeColor("#FFFFFF")}
+                onClick={() => toggleMenu(!menu)}
+                className="morph-icon"
+              />
+            </motion.div>
           </div>
         </motion.header>
       ) : null}

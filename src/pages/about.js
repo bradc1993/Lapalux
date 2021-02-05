@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { useEnteredUpdateContext } from "../components/store"
 import { InView } from "react-intersection-observer"
 import { motion } from "framer-motion"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import HorizontalScroll from "../components/horizontal-scroll"
 import LapaluxOne from "../images/lapalux-1.jpg"
 // import LapaluxTwo from "../images/lapalux-2.jpg"
@@ -34,24 +35,28 @@ const AboutPage = () => {
     hidden: { opacity: 0, transition: { when: "afterChildren" } },
   }
   const gridItemTop = {
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    hidden: { opacity: 0, y: -5, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, y: -5, transition: { duration: 0.8 } },
   }
   const gridItemBottom = {
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    hidden: { opacity: 0, y: 10, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, y: 10, transition: { duration: 0.8 } },
   }
   const gridItemRight = {
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-    hidden: { opacity: 0, x: 10, transition: { duration: 0.5 } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, x: 10, transition: { duration: 0.8 } },
   }
   //END
+  const handleEnter = useEnteredUpdateContext()
+  useEffect(() => {
+    handleEnter()
+  }, [])
 
   return (
     <div className="about">
       <HorizontalScroll>
         <div className="about-container">
-          <InView threshold={globalThreshold}>
+          <InView threshold={globalThreshold} triggerOnce>
             {({ ref, inView }) => (
               <motion.div
                 ref={ref}
@@ -77,7 +82,7 @@ const AboutPage = () => {
             )}
           </InView>
           <div className="about-section" key="about-section-2">
-            <InView threshold={0.4}>
+            <InView threshold={0.4} triggerOnce>
               {({ ref, inView }) => (
                 <motion.img
                   ref={ref}
@@ -90,7 +95,7 @@ const AboutPage = () => {
                 />
               )}
             </InView>
-            <InView threshold={globalThreshold}>
+            <InView threshold={globalThreshold} triggerOnce>
               {({ ref, inView }) => (
                 <motion.p
                   ref={ref}
@@ -116,7 +121,7 @@ const AboutPage = () => {
             </InView>
           </div>
           <div className="about-section" key="about-section-3">
-            <InView threshold={0.4}>
+            <InView threshold={0.4} triggerOnce>
               {({ ref, inView }) => (
                 <motion.div
                   className="about-image-grid"
@@ -146,7 +151,7 @@ const AboutPage = () => {
                 </motion.div>
               )}
             </InView>
-            <InView threshold={0.5}>
+            <InView threshold={0.5} triggerOnce>
               {({ ref, inView }) => (
                 <motion.p
                   ref={ref}
@@ -176,7 +181,7 @@ const AboutPage = () => {
             id="smaller-section"
             key="about-section-4"
           >
-            <InView threshold={0.4}>
+            <InView threshold={0.4} triggerOnce>
               {({ ref, inView }) => (
                 <motion.img
                   ref={ref}
@@ -189,7 +194,7 @@ const AboutPage = () => {
                 />
               )}
             </InView>
-            <InView threshold={0.3}>
+            <InView threshold={0.3} triggerOnce>
               {({ ref, inView }) => (
                 <div id="end-parent-grid">
                   <motion.p

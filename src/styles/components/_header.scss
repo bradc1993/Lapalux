@@ -1,6 +1,6 @@
 .header {
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   width: 97.5%;
   // top: 0;
   padding: 0 1.25%;
@@ -13,6 +13,21 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  @include media("<=xxl-desktop") {
+    width: 30%;
+  }
+  @include media("<=xl-desktop") {
+    width: 35%;
+  }
+  @include media("<=desktop") {
+    width: 42.5%;
+  }
+  @include media("<=tablet") {
+    width: 55%;
+  }
+  @include media("<=phone") {
+    width: 80%;
+  }
 }
 .site-title {
   display: inline-block;
@@ -42,4 +57,5 @@
   position: relative;
   top: 15px;
   cursor: pointer;
+  width: 75%;
 }

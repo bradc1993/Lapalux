@@ -6,6 +6,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
+  @include media("<=phone") {
+    height: 80%;
+  }
   // background-color: rgb(193, 40, 88);
   // background-image: url("../images/bg.jpg");
   // background-size: cover;

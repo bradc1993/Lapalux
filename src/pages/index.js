@@ -48,11 +48,11 @@ const IndexPage = () => {
           <motion.div
             className="menu"
             key="menu-wrapper"
-            initial={{ x: "50vw" }}
+            initial={{ x: "100vw" }}
             animate={{ x: 0 }}
-            exit={{ x: "50vw" }}
+            exit={{ x: "100vw" }}
             transition={{
-              duration: 0.85,
+              // duration: 0.85,
               type: "spring",
               bounce: 0,
             }}

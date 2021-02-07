@@ -38,6 +38,7 @@ const Clip = ({ videoLoop }) => {
     vid.autoplay = true
     vid.preload = "auto"
     vid.muted = true
+    vid.playsInline = true
     vid.play()
     return vid
   })

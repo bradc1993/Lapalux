@@ -28,7 +28,6 @@ const Layout = ({ children, pageContext }) => {
 
   return (
     <MenuContextProvider>
-      {console.log(pageContext)}
       <Header
         siteTitle={data.site.siteMetadata?.title || `Title`}
         onAboutPage={pageContext.layout === "about" ? true : false}

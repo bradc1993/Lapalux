@@ -14,6 +14,7 @@ import { useEnteredContext } from "./store"
 const Header = ({ siteTitle, onAboutPage }) => {
   // const [thickness, changeThickness] = useState(1.5)
   const [color, changeColor] = useState("#FFFFFF")
+  // const [fillRed, toggleFillRed] = useState(false)
 
   // const globalState = useContext(store)
   // const { dispatch } = globalState
@@ -33,7 +34,7 @@ const Header = ({ siteTitle, onAboutPage }) => {
       },
     },
     hidden: { y: "-10vh" },
-    about: { x: "45vw", transition: { duration: 1.8 } },
+    about: { x: "44vw", transition: { duration: 1.8 } },
   }
   return (
     <>
@@ -108,6 +109,9 @@ const Header = ({ siteTitle, onAboutPage }) => {
                 thickness={1.5}
                 onMouseEnter={() => changeColor("#FF0000")}
                 onMouseLeave={() => changeColor("#FFFFFF")}
+                onTouchStartCapture={() =>
+                  changeColor(color === "#FF0000" ? "#FFFFFF" : "#FF0000")
+                }
                 onClick={() => toggleMenu(!menu)}
                 className="morph-icon"
               />

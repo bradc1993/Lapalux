@@ -120,16 +120,16 @@ const Footer = ({ onAboutPage }) => {
           }
         />
         {entered ? (
-          <motion.div variants={variants} initial="hidden" animate="visible">
+          <motion.div className="audio-container" variants={variants} initial="hidden" animate="visible">
             <div className="volume-icon" onClick={() => togglePause()}>
               {isPlaying ? <PlayingIcon /> : <PausedIcon />}
             </div>
-            <h2 id="now-playing">
+            <h6 id="now-playing">
               NOW PLAYING -{" "}
               <span id="song-title-wrapper">
                 <span id="song-title-inner">{song}</span>
               </span>
-            </h2>
+            </h6>
           </motion.div>
         ) : null}
       </div>

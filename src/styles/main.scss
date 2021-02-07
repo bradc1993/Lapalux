@@ -1,4 +1,5 @@
-@import "./components/cursor";
+// @import "./components/cursor";
+@import "./breakpoints/breakpoints";
 @import "./components/load-screen";
 @import "./components/header";
 @import "./components/image";
@@ -97,11 +98,23 @@ h1 {
   font-family: "Tiempos Black Italic";
   font-size: 2.5rem;
   display: inline;
+  @include media("<=xxl-desktop") {
+    font-size: calc(2rem + 0.25vw);
+  }
+  @include media("<=phone") {
+    font-size: calc(1rem + 1vw);
+  }
 }
 h2 {
   font-family: "National Light";
   font-size: 1.25rem;
   display: inline;
+  @include media("<=xxl-desktop") {
+    font-size: calc(1rem + 0.2vw);
+  }
+  @include media("<=phone") {
+    font-size: calc(0.95rem + 0.2vw);
+  }
 }
 h3 {
   font-family: "Telegraf Medium";
@@ -109,6 +122,10 @@ h3 {
   line-height: 150%;
   text-align: center;
   // display: inline;
+  @include media("<=phone") {
+    font-size: calc(1rem + 1.6vw);
+    line-height: 125%;
+  }
 }
 h4 {
   font-family: "Telegraf Ultralight";
@@ -121,9 +138,23 @@ h5 {
   display: inline;
   font-size: 1.1rem;
 }
+h6 {
+  font-family: "National Light";
+  font-size: 1.25rem;
+  display: inline;
+  @include media("<=xxl-desktop") {
+    font-size: calc(1rem + 0.2vw);
+  }
+  @include media("<=phone") {
+    font-size: calc(0.6rem + 0.4vw);
+  }
+}
 p {
   font-family: "SK Modernist";
   font-size: 1.05rem;
+  @include media("<=phone") {
+    font-size: 0.6rem;
+  }
   // -webkit-text-stroke: 0.05px white;
 }
 a {

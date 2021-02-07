@@ -1,8 +1,10 @@
 import React from "react"
 import { useSongContext } from "./store"
+import { useMenuUpdateContext } from "./store"
 
 const Menu = () => {
   const { dispatch } = useSongContext()
+  const toggleMenu = useMenuUpdateContext()
   const songList = [
     "Oblivion",
     "Voltaic Acid",
@@ -21,7 +23,7 @@ const Menu = () => {
         <h3
           className="menu--item"
           key={song}
-          onClick={() => dispatch({ type: song })}
+          onClick={() => (dispatch({ type: song }), toggleMenu(false))}
         >
           {song}
         </h3>

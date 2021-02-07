@@ -23,11 +23,18 @@
   //   background-color: #111f30;
   //   margin-right: 75px;
   //   flex-shrink: 0;
+  @include media("<=phone") {
+    height: 60%;
+    width: 150vw;
+  }
 }
 .about-paragraph {
   width: 50%;
   padding: 5%;
   position: relative;
+  @include media("<=phone") {
+    width: 80%;
+  }
 }
 .about-image-grid {
   height: 100%;
@@ -38,7 +45,9 @@
 }
 %image-size {
   height: 100%;
-  // width: auto;
+  // @include media("<=phone") {
+  //   height: 100%;
+  // }
 }
 #grid-img-1 {
   @extend %image-size;
@@ -73,6 +82,9 @@
 
 #smaller-section {
   width: 65vw;
+  @include media("<=phone") {
+    width: 110vw;
+  }
 }
 #end-parent-grid {
   height: 70%;
@@ -140,6 +152,9 @@
 .about-img-2 {
   height: 100%;
   width: 52vw;
+  @include media("<=phone") {
+    width: 70vw;
+  }
 }
 //about-img-3 no styling
 .about-img-4 {

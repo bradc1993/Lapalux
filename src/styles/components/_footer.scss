@@ -7,14 +7,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include media("<=phone") {
+    height: 6%;
+  }
 }
 .footer--left {
   width: 12.5%;
   display: flex;
   justify-content: space-between;
+  @include media("<=phone") {
+    width: 30%;
+  }
 }
 .footer--icon-wrapper {
   width: 15%;
+  @include media("<=phone") {
+    width: 20%;
+  }
 }
 .footer--icon {
   width: 100%;
@@ -23,6 +32,17 @@
   width: 20%;
   display: inline-flex;
   justify-content: flex-end;
+  @include media("<=phone") {
+    width: 50%;
+  }
+}
+.audio-container {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  margin: auto 0;
+  height: 5vh;
 }
 .volume-icon {
   display: inline-flex;
@@ -30,29 +50,29 @@
   width: 10%;
   opacity: 0.9;
   cursor: pointer;
-  position: relative;
-  top: 5%;
+  // position: relative;
+  // top: 5%;
 }
 #now-playing {
   white-space: nowrap;
-//   text-align: right;
+  //   text-align: right;
 }
 #song-title-wrapper {
-  width: fit-content;
+  width: 100%;
   display: inline-flex;
   overflow: hidden;
 }
 #song-title-inner {
   white-space: nowrap;
   display: inline-block;
-//   animation: marquee 2s linear infinite;
+  // animation: marquee 5s linear infinite;
 }
 
 // @keyframes marquee {
 //   0% {
-//     transform: translateX(0);
+//     transform: translateX(-100%);
 //   }
 //   100% {
-//     transform: translateX(110%);
+//     transform: translateX(100%);
 //   }
 // }

@@ -1,5 +1,6 @@
 import React, { Suspense } from "react"
 import { Canvas } from "react-three-fiber"
+import { Loader } from "@react-three/drei"
 import {
   EffectComposer,
   DotScreen,
@@ -29,7 +30,7 @@ const Scene = ({ children }) => {
         // camera={{ position: [0, 0, 1], far: 1, near: 0.1 }}
         gl={{ antialias: false, alpha: false }}
       >
-        <Suspense fallback={null}>{children}</Suspense>
+        <Suspense fallback={"Loading..."}>{children}</Suspense>
         <EffectComposer>
           {/* <SSAO /> */}
           {/* <ToneMapping middleGrey={3} /> */}
@@ -46,6 +47,7 @@ const Scene = ({ children }) => {
           {/* <Scanline /> */}
         </EffectComposer>
       </Canvas>
+      <Loader />
     </div>
   )
 }

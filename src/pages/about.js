@@ -2,16 +2,8 @@ import React, { useEffect } from "react"
 import { useEnteredUpdateContext } from "../components/store"
 import { InView } from "react-intersection-observer"
 import { motion } from "framer-motion"
-// import { Link } from "gatsby"
+import Image from "../components/image"
 import HorizontalScroll from "../components/horizontal-scroll"
-import LapaluxOne from "../images/lapalux-1.jpg"
-// import LapaluxTwo from "../images/lapalux-2.jpg"
-import Turrell from "../images/turrell.jpg"
-// import LapaluxThree from "../images/lapalux-3.jpg"
-import AmnioOne from "../images/amnio-1.jpg"
-import AmnioTwo from "../images/amnio-2.jpg"
-import AmnioThree from "../images/amnio-3.jpg"
-import AmnioCover from "../images/amnio-cover.jpg"
 
 const AboutPage = () => {
   const globalThreshold = 0.5
@@ -66,7 +58,7 @@ const AboutPage = () => {
                 className="about-section"
                 key="about-section-1"
               >
-                <img id="image-1" src={LapaluxOne} alt="Lapalux standing." />
+                <Image src={1} />
                 <p className="about-paragraph">
                   Lapalux (aka Stuart Howard) returns to Flying Lotus’
                   Brainfeeder for his fourth album. “Amnioverse”—“a sort of
@@ -84,15 +76,15 @@ const AboutPage = () => {
           <div className="about-section" key="about-section-2">
             <InView threshold={0.4} triggerOnce>
               {({ ref, inView }) => (
-                <motion.img
+                <motion.div
                   ref={ref}
                   variants={fadeUp}
                   initial="hidden"
                   animate={inView ? "visible" : "hidden"}
                   id="image-3"
-                  src={Turrell}
-                  alt="James Turrell's Twilight Epiphany Skyspace installation."
-                />
+                >
+                  <Image src={2} />
+                </motion.div>
               )}
             </InView>
             <InView threshold={globalThreshold} triggerOnce>
@@ -102,8 +94,6 @@ const AboutPage = () => {
                   variants={fadeUp}
                   initial="hidden"
                   animate={inView ? "visible" : "hidden"}
-                  // initial="hidden"
-                  // variants={variants}
                   className="about-paragraph"
                 >
                   Initial inspiration for the album came from a photograph of
@@ -130,24 +120,15 @@ const AboutPage = () => {
                   initial="hidden"
                   animate={inView ? "visible" : "hidden"}
                 >
-                  <motion.img
-                    id="grid-img-2"
-                    src={AmnioTwo}
-                    alt="Making of Amnioverse cover."
-                    variants={gridItemBottom}
-                  />
-                  <motion.img
-                    id="grid-img-1"
-                    src={AmnioOne}
-                    alt="Making of Amnioverse cover."
-                    variants={gridItemTop}
-                  />
-                  <motion.img
-                    id="grid-img-3"
-                    src={AmnioThree}
-                    alt="Making of Amnioverse cover."
-                    variants={gridItemRight}
-                  />
+                  <motion.div id="grid-img-2" variants={gridItemBottom}>
+                    <Image src={3} />
+                  </motion.div>
+                  <motion.div id="grid-img-1" variants={gridItemTop}>
+                    <Image src={4} />
+                  </motion.div>
+                  <motion.div id="grid-img-3" variants={gridItemRight}>
+                    <Image src={5} />
+                  </motion.div>
                 </motion.div>
               )}
             </InView>
@@ -183,15 +164,15 @@ const AboutPage = () => {
           >
             <InView threshold={0.4} triggerOnce>
               {({ ref, inView }) => (
-                <motion.img
+                <motion.div
                   ref={ref}
                   variants={fadeUp}
                   initial="hidden"
                   animate={inView ? "visible" : "hidden"}
                   id="image-4"
-                  src={AmnioCover}
-                  alt="James Turrell's Twilight Epiphany Skyspace installation."
-                />
+                >
+                  <Image src={6} />
+                </motion.div>
               )}
             </InView>
             <InView threshold={0.3} triggerOnce>

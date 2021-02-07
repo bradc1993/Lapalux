@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useSongContext } from "./store"
 import { useEnteredContext } from "./store"
 import { motion } from "framer-motion"
+import { isMobile } from "react-device-detect"
 
 import SpotifyIcon from "../images/spotify.png"
 import InstagramIcon from "../images/instagram.png"
@@ -36,7 +37,9 @@ const Footer = ({ onAboutPage }) => {
   useEffect(() => {
     function muteAudio() {
       const audio = document.getElementById("current-song")
-      document.visibilityState !== "visible" ? audio.pause() : audio.play()
+      isMobile && document.visibilityState !== "visible"
+        ? audio.pause()
+        : audio.play()
     }
     document.addEventListener("visibilitychange", muteAudio)
 

@@ -19,8 +19,8 @@ const Image = ({ src }) => {
     query {
       lapalux1: file(relativePath: { eq: "lapalux-1.jpg" }) {
         childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid_tracedSVG
+          fluid(quality: 95) {
+            ...GatsbyImageSharpFluid
           }
         }
       }

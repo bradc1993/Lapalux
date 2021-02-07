@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useSongContext } from "./store"
 import { useEnteredContext } from "./store"
 import { motion } from "framer-motion"
@@ -33,6 +33,17 @@ const Footer = ({ onAboutPage }) => {
       audio.play()
     }
   }
+  useEffect(() => {
+    function muteAudio() {
+      const audio = document.getElementById("current-song")
+      document.visibilityState !== "visible" ? audio.pause() : audio.play()
+    }
+    document.addEventListener("visibilitychange", muteAudio)
+
+    return function removeListener() {
+      document.removeEventListener("visibilitychange", muteAudio)
+    }
+  })
 
   const entered = useEnteredContext()
   const { state } = useSongContext()
@@ -120,7 +131,12 @@ const Footer = ({ onAboutPage }) => {
           }
         />
         {entered ? (
-          <motion.div className="audio-container" variants={variants} initial="hidden" animate="visible">
+          <motion.div
+            className="audio-container"
+            variants={variants}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="volume-icon" onClick={() => togglePause()}>
               {isPlaying ? <PlayingIcon /> : <PausedIcon />}
             </div>

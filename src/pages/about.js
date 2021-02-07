@@ -39,10 +39,10 @@ const AboutPage = () => {
     hidden: { opacity: 0, x: 10, transition: { duration: 0.8 } },
   }
   //END
-  const handleEnter = useEnteredUpdateContext()
-  useEffect(() => {
-    handleEnter()
-  }, [])
+  // const handleEnter = useEnteredUpdateContext()
+  // useEffect(() => {
+  //   handleEnter()
+  // }, [])
 
   return (
     <div className="about">

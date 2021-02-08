@@ -40,6 +40,10 @@
   grid-column: 1 / span 2;
   place-self: center;
   margin-top: -5%;
+  display: grid;
+  grid-template-rows: 1fr 50%;
+  grid-template-columns: 100%;
+  place-items: center;
 }
 .enter-btn {
   width: fit-content;

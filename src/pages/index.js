@@ -5,6 +5,7 @@ import {
   useMenuContext,
   useSongContext,
 } from "../components/store"
+import { isMobile } from "react-device-detect"
 import SEO from "../components/seo"
 import Scene from "../components/scene"
 import Clip from "../components/clip"
@@ -48,9 +49,9 @@ const IndexPage = () => {
           <motion.div
             className="menu"
             key="menu-wrapper"
-            initial={{ x: "100vw" }}
+            initial={isMobile ? { x: "100vw" } : { x: "50vw" }}
             animate={{ x: 0 }}
-            exit={{ x: "100vw" }}
+            exit={isMobile ? { x: "100vw" } : { x: "50vw" }}
             transition={{
               // duration: 0.85,
               type: "spring",

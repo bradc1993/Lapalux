@@ -8,21 +8,38 @@
   justify-content: space-between;
   align-items: center;
   @include media("<=phone") {
-    height: 6%;
+    height: 7.5%;
+    align-items: baseline;
+    // justify-content: center;
   }
 }
 .footer--left {
   width: 12.5%;
   display: flex;
   justify-content: space-between;
+  @include media("<=xxl-desktop") {
+    width: 15%;
+  }
+  @include media("<=xl-desktop") {
+    width: 17.5%;
+  }
+  @include media("<=desktop") {
+    width: 20%;
+  }
+  @include media("<=laptop") {
+    width: 22.5%;
+  }
+  @include media("<=tablet") {
+    width: 27.5%;
+  }
   @include media("<=phone") {
-    width: 30%;
+    width: 37.5%;
   }
 }
 .footer--icon-wrapper {
   width: 15%;
   @include media("<=phone") {
-    width: 20%;
+    width: 19%;
   }
 }
 .footer--icon {
@@ -33,7 +50,7 @@
   display: inline-flex;
   justify-content: flex-end;
   @include media("<=phone") {
-    width: 50%;
+    width: 40%;
   }
 }
 .audio-container {
@@ -47,11 +64,22 @@
 .volume-icon {
   display: inline-flex;
   justify-content: center;
-  width: 10%;
   opacity: 0.9;
   cursor: pointer;
-  // position: relative;
-  // top: 5%;
+  @include media("<=xxl-desktop") {
+    margin-right: 2%;
+  }
+  @include media("<=phone") {
+    margin-right: 4%;
+  }
+}
+.volume-icon--png {
+  max-width: 50%;
+  min-width: 20px;
+  @include media("<=phone") {
+    width: 24px;
+    height: 24px;
+  }
 }
 #now-playing {
   white-space: nowrap;

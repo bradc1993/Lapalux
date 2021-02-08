@@ -34,7 +34,7 @@ const Header = ({ siteTitle, onAboutPage }) => {
       },
     },
     hidden: { y: "-10vh" },
-    about: { x: "44vw", transition: { duration: 1.8 } },
+    about: { x: "calc(50vw - 50%)", transition: { duration: 1.8 } },
   }
   return (
     <>
@@ -101,6 +101,7 @@ const Header = ({ siteTitle, onAboutPage }) => {
               transition={
                 onAboutPage ? { delay: 0.9, duration: 0.7 } : { duration: 0.85 }
               }
+              className="morph-icon-wrapper"
             >
               <MorphIcon
                 type={menu ? "cross" : "bars"}

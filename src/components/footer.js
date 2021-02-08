@@ -8,8 +8,10 @@ import SpotifyIcon from "../images/spotify.png"
 import InstagramIcon from "../images/instagram.png"
 import FacebookIcon from "../images/facebook.png"
 import TwitterIcon from "../images/twitter.png"
-import PlayingIcon from "../assets/vol-play.svg"
-import PausedIcon from "../assets/vol-mute.svg"
+// import PlayingIcon from "../assets/vol-play.svg"
+// import PausedIcon from "../assets/vol-mute.svg"
+import PlayingIcon from "../images/playing-icon.png"
+import PausedIcon from "../images/paused-icon.png"
 
 import LimbToLimb from "../audio/limb-to-limb.mp3"
 import Oblivion from "../audio/oblivion.mp3"
@@ -141,10 +143,24 @@ const Footer = ({ onAboutPage }) => {
             animate="visible"
           >
             <div className="volume-icon" onClick={() => togglePause()}>
-              {isPlaying ? <PlayingIcon /> : <PausedIcon />}
+              {isPlaying ? (
+                <img
+                  className="volume-icon--png"
+                  src={PlayingIcon}
+                  alt="Click to mute audio."
+                />
+              ) : (
+                <img
+                  className="volume-icon--png"
+                  src={PausedIcon}
+                  alt="Click to unmute icon."
+                />
+              )}
             </div>
             <h6 id="now-playing">
-              NOW PLAYING -{" "}
+              <span id="now-playing--text">
+                {isMobile ? null : "NOW PLAYING - "}
+              </span>
               <span id="song-title-wrapper">
                 <span id="song-title-inner">{song}</span>
               </span>

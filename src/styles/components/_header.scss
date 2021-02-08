@@ -7,9 +7,14 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  @include media("<=phone") {
+    width: 95%;
+    margin-left: 2.5%;
+    // margin-right: 50%;
+  }
 }
 .header--left {
-  width: 20%;
+  width: 25%;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -52,6 +57,12 @@
 #album-title {
   padding-top: 6.6px;
   margin-left: 3.5px;
+}
+.morph-icon-wrapper {
+  display: inline-block;
+  @include media("<=phone") {
+    margin-right: 20%;
+  }
 }
 .morph-icon {
   position: relative;

@@ -6,9 +6,20 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
+  // animation: zoomPan 6s linear infinite alternate-reverse;
   @include media("<=phone") {
     height: 80%;
   }
+
+  // @keyframes zoomPan {
+  //   0% {
+  //     transform: scale3d(1, 1, 1) translate3d(0px, 0px, 0px);
+  //   }
+  //   100% {
+  //     transform: scale3d(1.5, 1.5, 1.5) translate3d(200px, 400px, 0px);
+  //   }
+  // }
+
   // background-color: rgb(193, 40, 88);
   // background-image: url("../images/bg.jpg");
   // background-size: cover;

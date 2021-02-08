@@ -4,6 +4,7 @@ import { InView } from "react-intersection-observer"
 import { motion } from "framer-motion"
 import Image from "../components/image"
 import HorizontalScroll from "../components/horizontal-scroll"
+import CircleButton from "../images/circle-button.png"
 
 const AboutPage = () => {
   const globalThreshold = 0.5
@@ -216,11 +217,16 @@ const AboutPage = () => {
                       }
                       transition={{ delay: 0.3, duration: 0.8 }}
                     >
-                      <button className="circle-btn">
+                      <img
+                        src={CircleButton}
+                        alt="Click to buy/stream Amnioverse."
+                        id="circle-btn"
+                      />
+                      {/* <button className="circle-btn">
                         <h5 style={{ color: "black", whiteSpace: "nowrap" }}>
                           BUY/STREAM
                         </h5>
-                      </button>
+                      </button> */}
                     </motion.a>
                     {/* <Link to="/" className="about-link-wrapper">
                       <button className="back-btn">

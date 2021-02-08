@@ -14,6 +14,7 @@ import { useEnteredContext } from "./store"
 const Header = ({ siteTitle, onAboutPage }) => {
   // const [thickness, changeThickness] = useState(1.5)
   const [color, changeColor] = useState("#FFFFFF")
+  const [linkColor, changeLinkColor] = useState("#FFFFFF")
   // const [fillRed, toggleFillRed] = useState(false)
 
   // const globalState = useContext(store)
@@ -67,7 +68,14 @@ const Header = ({ siteTitle, onAboutPage }) => {
               }
             >
               <Link to="/about">
-                <h2 className="header--link">About</h2>
+                <h2
+                  className="header--link"
+                  style={{ color: linkColor }}
+                  onTouchStart={() => changeLinkColor("#FF0000")}
+                  onTouchEnd={() => changeLinkColor("#FFFFFF")}
+                >
+                  About
+                </h2>
               </Link>
             </motion.div>
             <motion.div

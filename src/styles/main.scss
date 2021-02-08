@@ -49,18 +49,23 @@
   font-family: "GT America";
   src: url("../fonts/GT-America-Thin.woff2") format("woff2");
 }
+@font-face {
+  font-family: "Untitled Sans";
+  src: url("../fonts/D-DIN.otf") format("opentype");
+}
 
 // * {
 //   cursor: none;
 // }
 
 html {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font: 112.5%/1.45em georgia, serif, sans-serif;
   box-sizing: border-box;
+  // overflow: hidden;
 }
 body {
   margin: 0;
@@ -79,6 +84,7 @@ body {
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
   // box-sizing: border-box;
   // overflow-x: hidden;
 }
@@ -110,7 +116,7 @@ h1 {
   }
 }
 h2 {
-  font-family: "SK Modernist";
+  font-family: "Telegraf Ultralight";
   font-size: 1.25rem;
   display: inline;
   @include media("<=xxl-desktop") {
@@ -156,10 +162,11 @@ h6 {
 p {
   font-family: "SK Modernist";
   font-size: 1.05rem;
+  // line-height: 160%;
   @include media("<=phone") {
     font-size: 0.6rem;
   }
-  // -webkit-text-stroke: 0.05px white;
+  -webkit-text-stroke: 0.25px white;
 }
 a {
   color: inherit;

@@ -132,6 +132,9 @@ h3 {
   line-height: 150%;
   text-align: center;
   // display: inline;
+  @include media("retina2x") {
+    font-size: calc(1rem + 0.4vw);
+  }
   @include media("<=phone") {
     font-size: calc(1rem + 1.6vw);
     line-height: 125%;

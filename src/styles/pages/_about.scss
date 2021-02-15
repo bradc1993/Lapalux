@@ -87,11 +87,10 @@
   }
 }
 #end-parent-grid {
-  height: 40vh;
+  height: 70%;
   margin-top: 20%;
   display: grid;
-  grid-template-rows: 50% 40%;
-  row-gap: 10%;
+  grid-template-rows: 50% 50%;
   grid-template-columns: 100%;
   place-items: center;
 }
@@ -102,8 +101,8 @@
   // grid-template-rows: 50% 40%;
   // grid-template-columns: 100%;
   // flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: baseline;
 }
 .about-link-wrapper {
   width: fit-content;
@@ -167,9 +166,7 @@
     width: 70vw;
   }
 }
-.about-img-3 {
-  height: 100%;
-}
+//about-img-3 no styling
 .about-img-4 {
   height: 100%;
   width: 134%;

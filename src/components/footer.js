@@ -36,19 +36,19 @@ const Footer = ({ onAboutPage }) => {
       audio.play()
     }
   }
-  useEffect(() => {
-    function muteAudio() {
-      const audio = document.getElementById("current-song")
-      isMobile && !isBrowser && document.visibilityState !== "visible"
-        ? audio.pause()
-        : audio.play()
-    }
-    document.addEventListener("visibilitychange", muteAudio)
+  // useEffect(() => {
+  //   function muteAudio() {
+  //     const audio = document.getElementById("current-song")
+  //     isMobile && !isBrowser && document.visibilityState !== "visible"
+  //       ? audio.pause()
+  //       : audio.play()
+  //   }
+  //   document.addEventListener("visibilitychange", muteAudio)
 
-    return function removeListener() {
-      document.removeEventListener("visibilitychange", muteAudio)
-    }
-  })
+  //   return function removeListener() {
+  //     document.removeEventListener("visibilitychange", muteAudio)
+  //   }
+  // })
 
   const entered = useEnteredContext()
   const { state } = useSongContext()

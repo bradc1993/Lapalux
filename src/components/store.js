@@ -5,8 +5,6 @@ const MenuUpdateContext = createContext()
 const SongContext = createContext()
 const EnteredContext = createContext()
 const EnteredUpdateContext = createContext()
-const MiniMenuContext = createContext()
-const MiniMenuUpdateContext = createContext()
 
 export const useMenuContext = () => {
   const context = useContext(MenuContext)
@@ -64,30 +62,29 @@ export const useEnteredUpdateContext = () => {
   return context
 }
 
-export const useMiniMenuContext = () => {
-  const context = useContext(MiniMenuContext)
-  if (context === undefined) {
-    throw new Error(
-      `useMiniMenuContext must be called within MenuContextProvider`
-    )
-  }
-  return context
-}
+// export const useMiniMenuContext = () => {
+//   const context = useContext(MiniMenuContext)
+//   if (context === undefined) {
+//     throw new Error(
+//       `useMiniMenuContext must be called within MenuContextProvider`
+//     )
+//   }
+//   return context
+// }
 
-export const useMiniMenuUpdateContext = () => {
-  const context = useContext(MiniMenuUpdateContext)
-  if (context === undefined) {
-    throw new Error(
-      `useMiniMenuUpdateContext must be called within MenuContextProvider`
-    )
-  }
-  return context
-}
+// export const useMiniMenuUpdateContext = () => {
+//   const context = useContext(MiniMenuUpdateContext)
+//   if (context === undefined) {
+//     throw new Error(
+//       `useMiniMenuUpdateContext must be called within MenuContextProvider`
+//     )
+//   }
+//   return context
+// }
 
-const MenuContextProvider = ({ children }) => {
+const ContextProvider = ({ children }) => {
   const [menu, toggleMenu] = useState(false)
-  const [miniMenu, toggleMiniMenu] = useState(false)
-
+  
   const [entered, toggleEntered] = useState(false)
   const handleEnter = () => {
     toggleEntered(true)
@@ -129,13 +126,7 @@ const MenuContextProvider = ({ children }) => {
         <MenuContext.Provider value={menu}>
           <MenuUpdateContext.Provider value={() => toggleMenu(!menu)}>
             <SongContext.Provider value={{ state, dispatch }}>
-              <MiniMenuContext.Provider value={miniMenu}>
-                <MiniMenuUpdateContext.Provider
-                  value={() => toggleMiniMenu(!miniMenu)}
-                >
-                  {children}
-                </MiniMenuUpdateContext.Provider>
-              </MiniMenuContext.Provider>
+              {children}
             </SongContext.Provider>
           </MenuUpdateContext.Provider>
         </MenuContext.Provider>
@@ -144,4 +135,4 @@ const MenuContextProvider = ({ children }) => {
   )
 }
 
-export default MenuContextProvider
+export default ContextProvider

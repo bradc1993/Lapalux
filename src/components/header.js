@@ -68,14 +68,7 @@ const Header = ({ siteTitle, onAboutPage }) => {
               }
             >
               <Link to="/about">
-                <h2
-                  className="header--link"
-                  style={{ color: linkColor }}
-                  onTouchStart={() => changeLinkColor("#FF0000")}
-                  onTouchEnd={() => changeLinkColor("#FFFFFF")}
-                >
-                  About
-                </h2>
+                <h2 className="header--link">About</h2>
               </Link>
             </motion.div>
             <motion.div

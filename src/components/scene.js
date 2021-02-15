@@ -5,6 +5,10 @@ import {
   EffectComposer,
   DotScreen,
   ChromaticAberration,
+  ToneMapping,
+  SSAO,
+  Noise,
+  Bloom,
 } from "@react-three/postprocessing"
 // import { BlendFunction } from "postprocessing"
 // import { Html } from "@react-three/drei"
@@ -25,12 +29,12 @@ const Scene = ({ children }) => {
   return (
     <div className="canvas-wrapper">
       <Canvas
-        colorManagement={false}
+        // colorManagement={true}
         orthographic={true}
         // camera={{ position: [0, 0, 1], far: 1, near: 0.1 }}
-        gl={{ antialias: false, alpha: false }}
+        gl={{ alpha: false }}
       >
-        <Suspense fallback={"Loading..."}>{children}</Suspense>
+        <Suspense fallback={null}>{children}</Suspense>
         <EffectComposer>
           {/* <SSAO /> */}
           {/* <ToneMapping middleGrey={3} /> */}
@@ -39,6 +43,7 @@ const Scene = ({ children }) => {
           {/* <Noise /> */}
           {/* <Pixelation /> */}
           {/* <ChromaticAberration /> */}
+          {/* <Bloom /> */}
           <DotScreen />
           {/* <Grid /> */}
           <ChromaticAberration />

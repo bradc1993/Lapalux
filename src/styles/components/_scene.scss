@@ -7,6 +7,9 @@
   transform: translate(-50%, -50%);
   z-index: -1;
   // animation: zoomPan 6s linear infinite alternate-reverse;
+  @include media("retina2x") {
+    height: 80%;
+  }
   @include media("<=phone") {
     height: 80%;
   }

@@ -9,10 +9,10 @@
 @import "./components/minimenu";
 @import "./pages/about";
 
-@font-face {
-  font-family: "El Messiri";
-  src: url("../fonts/elmessiri-bold.otf") format("opentype");
-}
+// @font-face {
+//   font-family: "El Messiri";
+//   src: url("../fonts/elmessiri-bold.otf") format("opentype");
+// }
 @font-face {
   font-family: "Tiempos Black Italic";
   src: url("../fonts/tiempos-headline-black-italic.woff") format("woff");
@@ -33,22 +33,18 @@
   font-family: "Telegraf Ultralight";
   src: url("../fonts/telegraf-ultralight.otf") format("opentype");
 }
-@font-face {
-  font-family: "National Light";
-  src: url("../fonts/national-2-test-light.woff") format("woff");
-}
+// @font-face {
+//   font-family: "National Light";
+//   src: url("../fonts/national-2-test-light.woff") format("woff");
+// }
 @font-face {
   font-family: "SK Modernist";
   src: url("../fonts/Sk-Modernist-Light.woff2") format("woff2");
 }
-@font-face {
-  font-family: "SK Modernist Bold";
-  src: url("../fonts/Sk-Modernist-Bold.otf") format("opentype");
-}
-@font-face {
-  font-family: "GT America";
-  src: url("../fonts/GT-America-Thin.woff2") format("woff2");
-}
+// @font-face {
+//   font-family: "SK Modernist Bold";
+//   src: url("../fonts/Sk-Modernist-Bold.otf") format("opentype");
+// }
 // @font-face {
 //   font-family: "Untitled Sans";
 //   src: url("../fonts/D-DIN.otf") format("opentype");

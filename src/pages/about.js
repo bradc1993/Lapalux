@@ -1,9 +1,10 @@
-import React, { useEffect } from "react"
-import { useEnteredUpdateContext } from "../components/store"
+import React from "react"
+// import { useEnteredUpdateContext } from "../components/store"
 import { InView } from "react-intersection-observer"
 import { motion } from "framer-motion"
 import Image from "../components/image"
 import HorizontalScroll from "../components/horizontal-scroll"
+import BuyButton from "../images/circle-button.png"
 
 const AboutPage = () => {
   const globalThreshold = 0.5
@@ -216,11 +217,11 @@ const AboutPage = () => {
                       }
                       transition={{ delay: 0.3, duration: 0.8 }}
                     >
-                      <button className="circle-btn">
-                        <h5 style={{ color: "black", whiteSpace: "nowrap" }}>
-                          BUY/STREAM
-                        </h5>
-                      </button>
+                      <img
+                        src={BuyButton}
+                        alt="Click to buy/stream Amnioverse."
+                        className="circle-btn"
+                      />
                     </motion.a>
                     {/* <Link to="/" className="about-link-wrapper">
                       <button className="back-btn">

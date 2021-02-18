@@ -27,6 +27,9 @@
     height: 60%;
     width: 180vw;
   }
+  @include media("retina2x") {
+    height: 95%;
+  }
 }
 .about-paragraph {
   width: 50%;
@@ -187,7 +190,7 @@
 }
 .about-img-6 {
   height: 100%;
-  width: 41vw;
+  width: 50vw;
   @include media("<=phone") {
     width: 70vw;
     height: auto;

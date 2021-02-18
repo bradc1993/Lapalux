@@ -12,6 +12,9 @@
     align-items: baseline;
     // justify-content: center;
   }
+  @include media("retina2x") {
+    height: 7.5%;
+  }
 }
 .footer--left {
   width: 12.5%;

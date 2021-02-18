@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useEnteredUpdateContext } from "./store"
 import { motion } from "framer-motion"
 import Spinner from "../images/limb-3d.gif"
@@ -27,6 +27,10 @@ const LoadScreen = () => {
   //     rotate: 0,
   //   },
   // }
+  useEffect(() => {
+    const audio = document.getElementById("current-song")
+    audio.pause()
+  }, [])
   const handleEnter = useEnteredUpdateContext()
   return (
     <div className="load-screen">

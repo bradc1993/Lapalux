@@ -1,15 +1,12 @@
 import React, { Suspense } from "react"
 import { Canvas } from "react-three-fiber"
-import { Loader } from "@react-three/drei"
+// import { Loader } from "@react-three/drei"
 import {
   EffectComposer,
   DotScreen,
   ChromaticAberration,
-  ToneMapping,
-  SSAO,
-  Noise,
-  Bloom,
 } from "@react-three/postprocessing"
+import { isMobile } from "react-device-detect"
 // import { BlendFunction } from "postprocessing"
 // import { Html } from "@react-three/drei"
 
@@ -44,15 +41,14 @@ const Scene = ({ children }) => {
           {/* <Pixelation /> */}
           {/* <ChromaticAberration /> */}
           {/* <Bloom /> */}
-          <DotScreen />
+          <DotScreen scale={isMobile ? 1.5 : 1.0} />
           {/* <Grid /> */}
-          <ChromaticAberration />
+          {/* <ChromaticAberration /> */}
           {/* <Noise /> */}
           {/* <Bloom /> */}
           {/* <Scanline /> */}
         </EffectComposer>
       </Canvas>
-      <Loader />
     </div>
   )
 }

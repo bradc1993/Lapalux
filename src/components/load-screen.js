@@ -3,6 +3,7 @@ import { useEnteredUpdateContext } from "./store"
 import { motion } from "framer-motion"
 import Spinner from "../images/limb-3d.gif"
 import DoorIcon from "../assets/exit.svg"
+import { isMobile } from "react-device-detect"
 
 const LoadScreen = () => {
   // const line1 = "'And the abyss also "
@@ -75,6 +76,20 @@ const LoadScreen = () => {
           <h4>ENTER</h4>
           <DoorIcon />
         </motion.button>
+        {isMobile && (
+          <motion.h6
+            style={{ fontSize: "calc(0.5rem + 1vw)" }}
+            initial={{ opacity: 0, display: "none" }}
+            animate={{
+              opacity: 1,
+              display: "inline-block",
+              transition: { duration: 2.3 },
+            }}
+            exit={{ opacity: 0, transition: { duration: 0.3 } }}
+          >
+            Please disable low power mode on your device.
+          </motion.h6>
+        )}
       </div>
     </div>
   )
